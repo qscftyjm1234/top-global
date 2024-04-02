@@ -18,10 +18,10 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    baseURL: '/top-global/',
-    head: {
-      meta: [{ name: '邏捷運通', content: '邏捷運通' }],
-    },
+    baseURL: '/nuxt-github-pages/',
+    // head: {
+    //   meta: [{ name: '邏捷運通', content: '邏捷運通' }],
+    // },
   },
   modules: [
     '@element-plus/nuxt'
