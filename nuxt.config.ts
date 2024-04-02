@@ -29,6 +29,10 @@ export default defineNuxtConfig({
   modules: [
     '@element-plus/nuxt'
   ],
+  elementPlus: {
+    // themes: ["dart"]
+    themes: ["dark"]
+  },
   // elementPlus: { /** Options */ }
   css: ['element-plus/dist/index.css', 'assets/styles/index.scss'],
 	alias: {
