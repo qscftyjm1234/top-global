@@ -17,6 +17,9 @@ export default defineNuxtConfig({
       publicDir: path.join(__dirname, 'docs')
     },
   },
+  router: {
+    base: '/nuxt-github-pages/',
+  },
   app: {
     baseURL: '/nuxt-github-pages/',
     // head: {
