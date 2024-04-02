@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    baseURL: '/nuxt-github-pages/',
+    baseURL: '/top-global/',
     head: {
       meta: [{ name: '邏捷運通', content: '邏捷運通' }],
     },
