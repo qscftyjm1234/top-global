@@ -1,43 +1,62 @@
 <script setup>
 import { ref } from 'vue' 
-const slide = ref('first');
 </script>
 <template>
-    <!-- 沒有在layout放Nuxt page就直接走這 -->
-    <div class="q-pa-md">
-    <q-carousel
-      arrows
-      animated
-      v-model="slide"
-      height="400px"
+   <div>
+    <el-badge :value="12" class="item">
+        <el-button>comments</el-button>
+    </el-badge>
+    <el-badge :value="3" class="item">
+        <el-button>replies</el-button>
+    </el-badge>
+    <el-badge :value="1" class="item" type="primary">
+        <el-button>comments</el-button>
+    </el-badge>
+    <el-badge :value="2" class="item" type="warning">
+        <el-button>replies</el-button>
+    </el-badge>
+    <el-badge :value="1" class="item" color="green">
+        <el-button>custom background</el-button>
+    </el-badge>
+
+    <div class="block text-center">
+    <span class="demonstration"
+      >Switch when indicator is hovered (default)</span
     >
-      <q-carousel-slide name="first" img-src="https://cdn.quasar.dev/img/mountains.jpg">
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">First stop</div>
-          <div class="text-subtitle1">Mountains</div>
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide name="second" img-src="https://cdn.quasar.dev/img/parallax1.jpg">
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Second stop</div>
-          <div class="text-subtitle1">Famous City</div>
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide name="third" img-src="https://cdn.quasar.dev/img/parallax2.jpg">
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Third stop</div>
-          <div class="text-subtitle1">Famous Bridge</div>
-        </div>
-      </q-carousel-slide>
-    </q-carousel>
+    <el-carousel height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
+        <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
   </div>
+  <div class="block text-center" m="t-4">
+    <span class="demonstration">Switch when indicator is clicked</span>
+    <el-carousel trigger="click" height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
+        <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+   </div>
 </template>
 
-<style lang="scss" scoped>
-.custom-caption {
+<style scoped>
+.demonstration {
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
   text-align: center;
-  padding: 12px;
-  color: white;
-  background-color: rgba(0, 0, 0, .3);
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>
