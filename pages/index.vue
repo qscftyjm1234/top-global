@@ -1,6 +1,18 @@
 <script setup>
-import { ref } from 'vue' 
-const activeName = ref('1')
+import { ref, onMounted } from 'vue' 
+const activeName = ref('1');
+
+onMounted(() => {
+    fetch("https://api.unsplash.com/photos/?client_id=XeMLEo-cG4umamAaRPxahF5CC7nhdSYGtbKlmU1O7Sk")
+    .then((res) => {
+        const data = res.json();
+        console.log(data)
+        return data;
+    })
+    .then((data) => {
+        console.log(data);
+    });    
+})
 </script>
 <template>
     <div class="block text-center" style="height: 480px">
