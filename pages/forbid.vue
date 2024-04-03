@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 17:01:21
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-02 17:01:32
+ * @LastEditTime: 2024-04-03 11:14:56
  * @FilePath: \top-glob\pages\forbid.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,6 +10,14 @@
 <template>
     <!-- 沒有在layout放Nuxt page就直接走這 -->
     <div>
-        forbid
+        <el-button type="primary" @click="handClick()">
+            按鈕
+        </el-button>
     </div>
 </template>
+
+<script setup lang="ts">
+ const handClick = () => {
+    alert('打炮')
+ }
+</script>
