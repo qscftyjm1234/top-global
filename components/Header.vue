@@ -2,52 +2,16 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 15:13:17
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-03 10:07:18
+ * @LastEditTime: 2024-04-03 11:30:52
  * @FilePath: \top-glob\components\Header.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script lang="ts" setup>
     import { ref } from 'vue'
-
-    const activeIndex = ref('1');
-    const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-    }
 </script>
 <template>
-    <el-menu
-        :default-active="activeIndex"
-        class="el-menu-demo"
-        mode="horizontal"
-        :ellipsis="false"
-        @select="handleSelect"
-    >
-    <el-menu-item index="0">
-      <img
-        style="width: 100px"
-        alt="Element logo"
-      />
-    </el-menu-item>
-    <div class="flex-grow" />
-    <el-menu-item index="1">Processing Center</el-menu-item>
-    <el-sub-menu index="2">
-      <template #title>Workspace</template>
-      <el-menu-item index="2-1">item one</el-menu-item>
-      <el-menu-item index="2-2">item two</el-menu-item>
-      <el-menu-item index="2-3">item three</el-menu-item>
-      <el-sub-menu index="2-4">
-        <template #title>item four</template>
-        <el-menu-item index="2-4-1">item one</el-menu-item>
-        <el-menu-item index="2-4-2">item two</el-menu-item>
-        <el-menu-item index="2-4-3">item three</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-  </el-menu>
 </template>
 <style>
-.flex-grow {
-  flex-grow: 1;
-}
 </style>
 
 

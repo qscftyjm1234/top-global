@@ -1,71 +1,42 @@
+<script setup>
+import { ref } from 'vue' 
+const slide = ref('first');
+</script>
 <template>
     <!-- 沒有在layout放Nuxt page就直接走這 -->
-    <div>
-
-        <el-card style="max-width: 480px">
-            <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
-        </el-card>
-        <el-card style="max-width: 480px">
-            <template #header>Yummy hamburger</template>
-            <img
-                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                style="width: 100%"
-            />
-        </el-card>
-        <div class="block text-center">
-            <span class="demonstration"
-            >Switch when indicator is hovered (default)</span
-            >
-            <el-carousel height="150px">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <h3 class="small justify-center" text="2xl">{{ item }}</h3>
-            </el-carousel-item>
-            </el-carousel>
+    <div class="q-pa-md">
+    <q-carousel
+      arrows
+      animated
+      v-model="slide"
+      height="400px"
+    >
+      <q-carousel-slide name="first" img-src="https://cdn.quasar.dev/img/mountains.jpg">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-h2">First stop</div>
+          <div class="text-subtitle1">Mountains</div>
         </div>
-      <el-badge :value="3" class="item">
-        <el-button>replies</el-button>
-      </el-badge>
-      <ClientOnly>
-            <el-dropdown trigger="click">
-                <span class="el-dropdown-link">
-                Click Me
-                <el-icon class="el-icon--right"><caret-bottom /></el-icon>
-                </span>
-                <template #dropdown>
-                <el-dropdown-menu>
-                    <el-dropdown-item class="clearfix">
-                    comments
-                    <el-badge class="mark" :value="12" />
-                    </el-dropdown-item>
-                    <el-dropdown-item class="clearfix">
-                    replies
-                    <el-badge class="mark" :value="3" />
-                    </el-dropdown-item>
-                </el-dropdown-menu>
-                </template>
-            </el-dropdown>
-        </ClientOnly>
-    </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="second" img-src="https://cdn.quasar.dev/img/parallax1.jpg">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-h2">Second stop</div>
+          <div class="text-subtitle1">Famous City</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="third" img-src="https://cdn.quasar.dev/img/parallax2.jpg">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-h2">Third stop</div>
+          <div class="text-subtitle1">Famous Bridge</div>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+  </div>
 </template>
 
-<style scoped>
-.demonstration {
-  color: var(--el-text-color-secondary);
-}
-
-.el-carousel__item h3 {
-  color: #475669;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-  text-align: center;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
+<style lang="sass" scoped>
+.custom-caption
+  text-align: center
+  padding: 12px
+  color: white
+  background-color: rgba(0, 0, 0, .3)
 </style>
