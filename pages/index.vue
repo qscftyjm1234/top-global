@@ -33,10 +33,11 @@ const slide = ref('first');
   </div>
 </template>
 
-<style lang="sass" scoped>
-.custom-caption
-  text-align: center
-  padding: 12px
-  color: white
-  background-color: rgba(0, 0, 0, .3)
+<style lang="scss" scoped>
+.custom-caption {
+  text-align: center;
+  padding: 12px;
+  color: white;
+  background-color: rgba(0, 0, 0, .3);
+}
 </style>

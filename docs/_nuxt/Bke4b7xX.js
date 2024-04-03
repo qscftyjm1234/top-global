@@ -1,0 +1,1 @@
+import{_ as n,v as _,B as c,z as e,t as a,a5 as r}from"./DvRLIZgw.js";import{_ as s}from"./CFXhngNP.js";const m={};function p(u,f){const o=r,t=s;return a(),_("div",null,[c(" 進入點2 "),e(o),e(t)])}const d=n(m,[["render",p]]);export{d as default};

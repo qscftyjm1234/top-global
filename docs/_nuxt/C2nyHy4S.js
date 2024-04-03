@@ -1,1 +1,0 @@
-import{d as n,i as a,t as r,v as s,z as l,A as c,B as p}from"./BnDKJgWa.js";const u=n({__name:"forbid",setup(i){const t=()=>{alert("打炮")};return(_,e)=>{const o=a("el-button");return r(),s("div",null,[l(o,{type:"primary",onClick:e[0]||(e[0]=d=>t())},{default:c(()=>[p(" 按鈕 ")]),_:1})])}}});export{u as default};
