@@ -1,4 +1,5 @@
 <template>
+<client-only>
     <!-- 沒有在layout放Nuxt page就直接走這 -->
     <div>
 
@@ -51,6 +52,7 @@
         <el-alert title="Error alert" type="error" />
     </div>
     </div>
+</client-only>
 </template>
 
 <style scoped>
