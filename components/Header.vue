@@ -1,19 +1,46 @@
-<!--
- * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @Date: 2024-04-02 15:13:17
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-03 11:30:52
- * @FilePath: \top-glob\components\Header.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
-<script lang="ts" setup>
-    import { ref } from 'vue'
-</script>
 <template>
-</template>
-<style>
-</style>
-
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      :ellipsis="false"
+      @select="handleSelect"
+    >
+      <el-menu-item index="0">
+        <el-avatar :size="48">
+            <img
+                src="@/assets/images/logo.jpg"
+            /> 
+        </el-avatar>
+        <!-- <img
+          style="width: 100px"
+          src="@/assets/images/logo.jpg"
+          alt="Element logo"
+        /> -->
+      </el-menu-item>
+      <div class="flex-grow" />
+      <el-menu-item index="1" class="el-mr-1">關於我們</el-menu-item>
+      <el-menu-item index="2">服務介紹及費用</el-menu-item>
+      <el-menu-item index="3">禁運用品及限制</el-menu-item>
+      <el-menu-item index="4">最新公告</el-menu-item>
+      <el-menu-item index="5">單號查詢</el-menu-item>
+    </el-menu>
+  </template>
+  
+  <script lang="ts" setup>
+  import { ref } from 'vue'
+  
+  const activeIndex = ref('1')
+  const handleSelect = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+  }
+  </script>
+  
+  <style>
+  .flex-grow {
+    flex-grow: 1;
+  }
+  </style>
 
 
 <!--  
