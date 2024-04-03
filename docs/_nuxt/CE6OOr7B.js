@@ -1,0 +1,1 @@
+import{d as r,_ as a,v as s,z as e,t as m,ah as p}from"./FRYduX8X.js";import{_ as u}from"./CSal_QqL.js";const d=r({__name:"Header",setup(t){return(_,n)=>null}}),f={};function l(t,_){const n=d,o=p,c=u;return m(),s("div",null,[e(n),e(o),e(c)])}const h=a(f,[["render",l]]);export{h as default};
