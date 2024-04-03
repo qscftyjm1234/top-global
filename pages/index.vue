@@ -1,12 +1,13 @@
 <script setup>
-import { ref, onMounted } from 'vue' 
+import { ref, onMounted } from 'vue';
 const activeName = ref('1');
 
 onMounted(() => {
+    console.log('133131')
     fetch("https://api.unsplash.com/photos/?client_id=XeMLEo-cG4umamAaRPxahF5CC7nhdSYGtbKlmU1O7Sk")
-    .then((res) => {
+    .then(async(res) => {
         const data = res.json();
-        console.log(data)
+        console.log(await data)
         return data;
     })
     .then((data) => {
@@ -15,6 +16,12 @@ onMounted(() => {
 })
 </script>
 <template>
+    <img
+            src="@/assets/images/logo.jpg"
+        /> 
+    <img
+            src="@/assets/images/logo.jpg"
+        /> 
     <div class="block text-center" style="height: 480px">
         <el-carousel height="auto" autoplay>
             <el-carousel-item style="height: 480px">
