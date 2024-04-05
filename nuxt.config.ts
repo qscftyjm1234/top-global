@@ -20,15 +20,20 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
   ],
   css: ['element-plus/dist/index.css'], // import css
-
+  // 別名(把弄路徑用個變數改掉，可復用)
 	alias: {
 		'@': resolve(__dirname, './'),
 	},
   router: {
-    // base: '/top-global/',
+    base: '/top-global/',
     // base: '../',
   },
-
+  // generate: {
+  //   // 設置生成時靜態文件的路徑
+  //   // 在此例中，將路徑改為 './_nuxt/images/'，可根據需求進行調整
+  //   dir: './_nuxt',
+  //   // 其他生成選項...
+  // },
   // 更改輸出資料夾(因為要配合github page)
   nitro: {
     output: {
@@ -36,28 +41,20 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    // baseURL: '',
+    // publicPath: '/your-base-path/',
+    // baseURL: 'https://example.com/api' // 配置應用程序的基本 API 請求 URL
+    base: '/top-global/',
     head: {
       meta: [{ name: '邏捷運通', content: '邏捷運通' }],
     },
     // buildAssetsDir: 'static',
-  }, 
-  generate: {
-    // 指定生成的文件目錄
-    dir: 'docs',
   },
-
-  // build: {
-  //   // transplie: [/^element-plus/]
-  //   publicPath: './_nuxt/',
-  // },
-	// alias: {
-	// 	'@': resolve(__dirname, './'),
-	// },
-  // generate: {
-  //   dir: './static'
-  // },
-  // experimental: {
-  //   payloadExtraction: false   //启用此选项时（默认情况下）提取使用nuxt generate生成的页面的有效负载
-  // },
+  
+  router: {
+    base: '../'
+  },
+  // 資源配置
+  build: {
+    publicPath: '../' // 設置資源的公共路徑為相對路徑
+  }
 });

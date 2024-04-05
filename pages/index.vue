@@ -17,11 +17,17 @@ onMounted(() => {
 </script>
 <template>
     <img
-            src="@/assets/images/logo.jpg"
-        /> 
+        src="@/assets/images/logo.jpg"
+    /> 
     <img
-            src="@/assets/images/logo.jpg"
-        /> 
+        src="@/static/logo.jpg"
+    />
+     <!--<img
+        src="static/logo.jpg"
+    /> 
+    <img
+        src="/static/logo.jpg"
+    />  -->
     <div class="block text-center" style="height: 480px">
         <el-carousel height="auto" autoplay>
             <el-carousel-item style="height: 480px">
