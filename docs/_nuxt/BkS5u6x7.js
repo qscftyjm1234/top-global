@@ -1,0 +1,1 @@
+import{E as n}from"./CTkLhP0o.js";import"./B40UNutP.js";import{d as r,t as a,v as s,z as l,A as p,B as c}from"./CPUl9Vdy.js";const k=r({__name:"forbid",setup(i){const e=()=>{alert("打炮")};return(m,t)=>{const o=n;return a(),s("div",null,[l(o,{type:"primary",onClick:t[0]||(t[0]=_=>e())},{default:p(()=>[c(" 按鈕 ")]),_:1})])}}});export{k as default};

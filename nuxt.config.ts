@@ -34,6 +34,6 @@ export default defineNuxtConfig({
     },
   },
   generate: {
-    publicPath: '/top-global/'
+    publicPath: '/'
   },
 });
