@@ -17,8 +17,8 @@ export default defineNuxtConfig({
   
   app: {
     // publicPath: '/your-base-path/',
-    baseURL: '/top-global/' // 配置應用程序的基本 API 請求 URL
-    // base: '/top-global/',
+    baseURL: '/top-global/', // 配置應用程序的基本 API 請求 URL
+    base: '/top-global/',
     // buildAssetsDir: 'static',
   },
   devtools: { enabled: true },
@@ -32,5 +32,8 @@ export default defineNuxtConfig({
     output: {
       publicDir: path.join(__dirname, 'docs')
     },
-  }
+  },
+  generate: {
+    publicPath: '/top-global/'
+  },
 });
