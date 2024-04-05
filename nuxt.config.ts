@@ -3,7 +3,8 @@ const path = require('path');
 export default defineNuxtConfig({
   app: {
     baseURL: '/top-global/', // 配置應用程序的基本 API 請求 URL
-    base: '/top-global/'
+    base: '/top-global/',
+    buildAssetsDir: '/static/',
   },
   devtools: { enabled: true },
   modules: [
