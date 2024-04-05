@@ -24,10 +24,6 @@ export default defineNuxtConfig({
 	alias: {
 		'@': resolve(__dirname, './'),
 	},
-  router: {
-    base: '/top-global/',
-    // base: '../',
-  },
   // generate: {
   //   // 設置生成時靜態文件的路徑
   //   // 在此例中，將路徑改為 './_nuxt/images/'，可根據需求進行調整
@@ -49,12 +45,11 @@ export default defineNuxtConfig({
     },
     // buildAssetsDir: 'static',
   },
-  
   router: {
-    base: '../'
+    base: '/top-global/'
   },
   // 資源配置
   build: {
-    publicPath: '../' // 設置資源的公共路徑為相對路徑
+    publicPath: '/top-global/' // 設置資源的公共路徑為相對路徑
   }
 });
