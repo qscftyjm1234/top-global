@@ -24,12 +24,9 @@ export default defineNuxtConfig({
 	alias: {
 		'@': resolve(__dirname, './'),
 	},
-  // generate: {
-  //   // 設置生成時靜態文件的路徑
-  //   // 在此例中，將路徑改為 './_nuxt/images/'，可根據需求進行調整
-  //   dir: './_nuxt',
-  //   // 其他生成選項...
-  // },
+  generate: {
+    publicPath: '/'
+  },
   // 更改輸出資料夾(因為要配合github page)
   nitro: {
     output: {
@@ -39,7 +36,8 @@ export default defineNuxtConfig({
   app: {
     // publicPath: '/your-base-path/',
     // baseURL: 'https://example.com/api' // 配置應用程序的基本 API 請求 URL
-    base: './top-global/',
+    base: '/top-global/',
+    publicPath: '/',
     head: {
       meta: [{ name: '邏捷運通', content: '邏捷運通' }],
     },
