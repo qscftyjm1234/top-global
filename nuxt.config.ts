@@ -14,40 +14,23 @@ import { resolve } from 'pathe';
 // import Components from 'unplugin-vue-components/vite';
 // import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 export default defineNuxtConfig({
+  
+  app: {
+    // publicPath: '/your-base-path/',
+    // baseURL: 'https://example.com/api' // 配置應用程序的基本 API 請求 URL
+    base: '/top-global/',
+    // buildAssetsDir: 'static',
+  },
   devtools: { enabled: true },
   // 輸出後更改資料夾
   modules: [
     '@element-plus/nuxt',
   ],
   css: ['element-plus/dist/index.css'], // import css
-  // 別名(把弄路徑用個變數改掉，可復用)
-	alias: {
-		'@': resolve(__dirname, './'),
-	},
-  generate: {
-    publicPath: '/'
-  },
   // 更改輸出資料夾(因為要配合github page)
   nitro: {
     output: {
       publicDir: path.join(__dirname, 'docs')
     },
-  },
-  app: {
-    // publicPath: '/your-base-path/',
-    // baseURL: 'https://example.com/api' // 配置應用程序的基本 API 請求 URL
-    base: '/top-global/',
-    publicPath: '/',
-    head: {
-      meta: [{ name: '邏捷運通', content: '邏捷運通' }],
-    },
-    // buildAssetsDir: 'static',
-  },
-  router: {
-    base: '/top-global/'
-  },
-  // 資源配置
-  build: {
-    publicPath: '/top-global/' // 設置資源的公共路徑為相對路徑
   }
 });
