@@ -1,40 +1,53 @@
-<template>
+
+  
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const activeIndex = ref('1')
+const handleSelect = (key: string, keyPath: string[]) => {
+console.log(key, keyPath)
+}
+</script>
+    <template>
     <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      :ellipsis="false"
-      @select="handleSelect"
-    >
-      <el-menu-item index="0">
-        <el-avatar :size="48">
-            <img
-                src="@/assets/images/logo.jpg"
-            /> 
-        </el-avatar>
-        <!-- <img
-          style="width: 100px"
-          src="@/assets/images/logo.jpg"
-          alt="Element logo"
-        /> -->
-      </el-menu-item>
-      <div class="flex-grow" />
-      <el-menu-item index="1" class="el-mr-1">關於我們</el-menu-item>
-      <el-menu-item index="2">服務介紹及費用</el-menu-item>
-      <el-menu-item index="3">禁運用品及限制</el-menu-item>
-      <el-menu-item index="4">最新公告</el-menu-item>
-      <el-menu-item index="5">單號查詢</el-menu-item>
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        :ellipsis="false"
+        @select="handleSelect"
+        >
+        <div style="display: flex; align-items: center;">
+            
+            <NuxtLink to="/">
+                <el-avatar :size="48">
+                    <img
+                        src="@/assets/images/logo.jpg"
+                    /> 
+                </el-avatar>
+            </NuxtLink>
+            <div style="display: flex; margin-left: 16px;">
+                <div style="font-weight: bold;">TGE 邏捷運通有限公司</div>
+                <span style="font-size: 12px; vertical-align : text-bottom">（Top Global Express）</span>
+            </div>
+        </div>
+        <div class="flex-grow"></div>
+        <el-menu-item index="1" class="el-mr-1" >
+            <NuxtLink to="/about" style="text-decoration:none">關於我們</NuxtLink>
+        </el-menu-item>
+        <el-menu-item index="2">
+            <NuxtLink to="/server" style="text-decoration:none">服務介紹及費用</NuxtLink>
+        </el-menu-item>
+        <el-menu-item index="3">
+            <NuxtLink to="/forbid" style="text-decoration:none">禁運用品及限制</NuxtLink>
+        </el-menu-item>
+        <el-menu-item index="4">
+            <NuxtLink to="/news" style="text-decoration:none">最新公告</NuxtLink>
+        </el-menu-item>
+        <el-menu-item index="5">
+            <NuxtLink to="/orderNum" style="text-decoration:none">單號查詢</NuxtLink>
+        </el-menu-item>
     </el-menu>
-  </template>
-  
-  <script lang="ts" setup>
-  import { ref } from 'vue'
-  
-  const activeIndex = ref('1')
-  const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
-  </script>
+    </template>
   
   <style>
   .flex-grow {

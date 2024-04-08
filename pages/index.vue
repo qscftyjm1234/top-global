@@ -14,6 +14,13 @@ onMounted(() => {
         console.log(data);
     });    
 })
+
+
+const activeTabName = ref('first')
+
+const handleClick = (tab, event) => {
+  console.log(tab, event)
+}
 </script>
 <template>
     <div class="block text-center">
@@ -117,7 +124,6 @@ onMounted(() => {
           </el-col>
       </el-row>
     </section>
-    
     <section>
       <el-row justify="space-between" :gutter="20" class="wrap">
           <el-col>
@@ -175,6 +181,39 @@ onMounted(() => {
           </el-col>
       </el-row>
     </section>
+    <section>
+      <el-row justify="space-between" :gutter="20" class="wrap">
+          <el-col>
+				<div class="title">
+					流程
+				</div>
+				<el-tabs v-model="activeTabName" class="demo-tabs" @tab-click="handleClick">
+					<el-tab-pane label="集運流程" name="first">
+						<div class="step-card">
+							<div class="step-num">
+								1
+							</div>
+							<div class="step-content">
+								<h2 style="margin-top: 0px">
+									<strong>海外各地下單</strong>
+								</h2>
+								<p>
+									內文內文內文內文內文內文內文內文內文內文內文內文內文內文內
+									文內文內文內文內文內文內文內文內文內文
+								</p>
+							</div>
+						</div>
+					</el-tab-pane>
+					<el-tab-pane label="進偶流程" name="second">
+						
+					</el-tab-pane>
+					<el-tab-pane label="出口流程" name="third">
+						
+					</el-tab-pane>
+				</el-tabs>
+          </el-col>
+      </el-row>
+    </section>
 </template>
 
 <style scoped>
@@ -187,22 +226,6 @@ section {
   display: flex; 
   justify-content: center
 }
-.el-carousel__item h3 {
-  color: #475669;
-  opacity: 0.75;
-  line-height: 200px;
-  margin: 0;
-  text-align: center;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
-
 .title {
     display: flex;
     align-items: center;
@@ -221,5 +244,70 @@ section {
     height: 24px;
     background-color: rgb(32, 151, 219);
     margin-right: 8px;
+}
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+
+
+
+.step-card{
+	position: relative;
+	display: flex;
+	border-radius: 8px;
+	padding: 64px 32px;
+	background-size: cover; /* 确保图像覆盖整个容器 */
+	background-position: center; /* 将背景图像置中 */
+	border-radius: 16px;
+	overflow: hidden;
+	/* background-size: cover; */
+	/* background-image: url("assets/images/home/step-img-01.jpg"); */
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.step-card::before {
+	content: ''; /* 伪元素内容为空 */
+	position: absolute; /* 绝对定位 */
+	top: 0;
+	left: 0;
+	width: 100%; /* 宽度100% */
+	height: 100%; /* 高度100% */
+	background-image: url('assets/images/home/step-img-01.jpg'); /* 背景图片 */
+	background-size: cover; /* 图片铺满 */
+	background-position: center; /* 图片居中 */
+	opacity: 1; /* 透明度 */
+	z-index: -1; /* 位于底部 */
+}
+
+.step-card .step-num {
+    margin-right: 28px;
+    -webkit-text-stroke: 1px rgb(140, 140, 140);
+    color: transparent;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 0.8;
+    font-style: italic;
+    flex-shrink: 0;
+    width: 35px;
+    text-align: center;
+}
+
+.step-card .step-content {
+    display: flex;
+    flex-direction: column;
+}
+.step-card .step-content p{
+    margin: 0px;
 }
 </style>
