@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   modules: [
     '@element-plus/nuxt',
   ],
-  css: ['element-plus/dist/index.css'], // import css
+  css: ['element-plus/dist/index.css', '@/assets/styles/index.css'], // import css
   build: {
     publicDir: 'static', // 靜態資源的輸出目錄
   },

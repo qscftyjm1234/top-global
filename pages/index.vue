@@ -2,8 +2,12 @@
 import { ref, onMounted } from 'vue';
 const activeName = ref('1');
 
+
+const fadeInElements = ref([]);
 onMounted(() => {
-    console.log('133131')
+    fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'))
+    document.addEventListener('scroll', handleScroll)
+    handleScroll()
     fetch("https://api.unsplash.com/photos/?client_id=XeMLEo-cG4umamAaRPxahF5CC7nhdSYGtbKlmU1O7Sk")
     .then(async(res) => {
         const data = res.json();
@@ -14,7 +18,22 @@ onMounted(() => {
         console.log(data);
     });    
 })
-
+const handleScroll = (evt) => {
+    for (var i = 0; i < fadeInElements.value.length; i++) {
+    var elem = fadeInElements.value[i]
+    if (isElemVisible(elem)) {
+        elem.style.opacity = '1'
+        elem.style.transform = 'scale(1)'
+        fadeInElements.value.splice(i, 1) // 只让它运行一次
+    }
+    }
+}
+const isElemVisible = (el) => {
+  var rect = el.getBoundingClientRect()
+  var elemTop = rect.top + 200 // 200 = buffer
+  var elemBottom = rect.bottom
+  return elemTop < window.innerHeight && elemBottom >= 0
+}
 
 const activeTabName = ref('first')
 
@@ -24,15 +43,12 @@ const handleClick = (tab, event) => {
 </script>
 <template>
     <div class="block text-center">
-        <el-carousel autoplay>
-            <el-carousel-item>
-                <img style="width: 100%; height: 100%;" src="@/assets/images/home/banner-1.jpg">
+        <el-carousel autoplay height="auto">
+            <el-carousel-item style="width: 100%; height: auto;">
+                <img style="width: 100%; height: auto;" src="@/assets/images/home/banner-1.jpg">
             </el-carousel-item>
-            <el-carousel-item>
-                <img style="width: 100%; height: 100%;" src="@/assets/images/home/banner-1.jpg">
-            </el-carousel-item>
-            <el-carousel-item>
-                <img style="width: 100%; height: 100%;" src="@/assets/images/home/banner-1.jpg">
+            <el-carousel-item style="width: 100%; height: auto;">
+                <img style="width: 100%; height: auto;" src="@/assets/images/home/banner-1.jpg">
             </el-carousel-item>
         </el-carousel>
     </div>
@@ -214,6 +230,11 @@ const handleClick = (tab, event) => {
           </el-col>
       </el-row>
     </section>
+
+    <div class='fade-in full-width'>13</div>
+    <div class='fade-in full-width'>13</div>
+    <div class='half-width fade-in'>13</div>
+    <div class='half-width fade-in'>13</div>
 </template>
 
 <style scoped>
@@ -310,4 +331,39 @@ section {
 .step-card .step-content p{
     margin: 0px;
 }
+
+
+
+
+
+
+
+
+
+.fade-in {
+    background-color: #2ecc71;
+    height: 500px;
+    margin-bottom: 50px;
+    opacity: 0;
+    transition: 0.3s all ease-out;
+    transform: scale(0.8);
+    box-sizing: border-box;
+    padding: 20px;
+    display: inline-block;
+  }
+  .full-width{
+    width: 100%;
+  }
+
+  .half-width {
+    width: 47.5%;
+  }
+
+  .half-width:nth-of-type(2n + 1) {
+    margin-right: 2.5%;
+  }
+
+  .half-width:nth-of-type(2n) {
+    margin-left: 2.5%;
+  }
 </style>

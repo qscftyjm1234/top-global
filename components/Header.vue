@@ -1,95 +1,100 @@
 
   
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script setup>
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router';
 
-const activeIndex = ref('1')
-const handleSelect = (key: string, keyPath: string[]) => {
-console.log(key, keyPath)
-}
+
+
+const currentRoute = useRoute();
+const activeIndex = ref('1');
+
+const handleSelect = (key, keyPath) => {
+};
+
+const tanfarIndex = (routeName) => {
+    switch(routeName) {
+        case "index":
+            return "0";
+        case "about":
+            return "1";
+        case "server":
+            return "2";
+        case "forbid":
+            return "3";
+        case "news":
+            return "4";
+        case "orderNum":
+            return "5";
+    }
+};
+
+watch(
+    () => currentRoute.name,
+    (to, from) => {
+        activeIndex.value = tanfarIndex(currentRoute.name);
+    }, {
+        immediate: true,
+    }
+);
 </script>
     <template>
-    <el-menu
-        :default-active="activeIndex"
-        class="el-menu-demo"
-        mode="horizontal"
-        :ellipsis="false"
-        @select="handleSelect"
-        >
-        <div style="display: flex; align-items: center;">
-            
-            <NuxtLink to="/">
-                <el-avatar :size="48">
-                    <img
-                        src="@/assets/images/logo.jpg"
-                    /> 
-                </el-avatar>
-            </NuxtLink>
-            <div style="display: flex; margin-left: 16px;">
-                <div style="font-weight: bold;">TGE 邏捷運通有限公司</div>
-                <span style="font-size: 12px; vertical-align : text-bottom">（Top Global Express）</span>
+        <el-affix :offset="0">
+            <div style="width: 100%; display: flex; justify-content: center; border-bottom: 1px solid #dcdfe6; background-color: rgba(255, 255, 255, 0.9);">
+                <el-menu
+                    style="max-width: 1200px; width: 100%; border-bottom: 0px; background-color:transparent"
+                    class="el-menu-demo"
+                    mode="horizontal"
+                    :ellipsis="false"
+                    :default-active="activeIndex"
+                    @select="handleSelect"
+                    >
+                    <div style="display: flex; align-items: center;">
+                        <NuxtLink to="/">
+                            <el-avatar :size="48">
+                                <img
+                                    src="@/assets/images/logo.jpg"
+                                /> 
+                            </el-avatar>
+                        </NuxtLink>
+                        <div style="display: flex; margin-left: 16px;">
+                            <div style="font-weight: bold;">TGE 邏捷運通有限公司</div>
+                            <span style="font-size: 14px; vertical-align : text-bottom">（Top Global Express）</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow"></div>
+                    <el-menu-item index="1" class="el-mr-1" >
+                        <NuxtLink to="/about" class="text-decoration-none">
+                            <b>關於我們</b>
+                        </NuxtLink>
+                    </el-menu-item>
+                    <el-menu-item index="2">
+                        <NuxtLink to="/server" class="text-decoration-none">
+                            <b>服務介紹及費用</b>
+                        </NuxtLink>
+                    </el-menu-item>
+                    <el-menu-item index="3">
+                        <NuxtLink to="/forbid" class="text-decoration-none">
+                            <b>禁運用品及限制</b>
+                        </NuxtLink>
+                    </el-menu-item>
+                    <el-menu-item index="4">
+                        <NuxtLink to="/news" class="text-decoration-none">
+                            <b>最新公告</b>
+                        </NuxtLink>
+                    </el-menu-item>
+                    <el-menu-item index="5">
+                        <NuxtLink to="/orderNum" class="text-decoration-none"><b>單號查詢</b></NuxtLink>
+                    </el-menu-item>
+                </el-menu>
             </div>
-        </div>
-        <div class="flex-grow"></div>
-        <el-menu-item index="1" class="el-mr-1" >
-            <NuxtLink to="/about" style="text-decoration:none">關於我們</NuxtLink>
-        </el-menu-item>
-        <el-menu-item index="2">
-            <NuxtLink to="/server" style="text-decoration:none">服務介紹及費用</NuxtLink>
-        </el-menu-item>
-        <el-menu-item index="3">
-            <NuxtLink to="/forbid" style="text-decoration:none">禁運用品及限制</NuxtLink>
-        </el-menu-item>
-        <el-menu-item index="4">
-            <NuxtLink to="/news" style="text-decoration:none">最新公告</NuxtLink>
-        </el-menu-item>
-        <el-menu-item index="5">
-            <NuxtLink to="/orderNum" style="text-decoration:none">單號查詢</NuxtLink>
-        </el-menu-item>
-    </el-menu>
+        </el-affix>
     </template>
-  
-  <style>
-  .flex-grow {
-    flex-grow: 1;
-  }
-  </style>
-
-
-<!--  
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid" style="width: 1440px">
-        
-        <nuxt-link to="/">LOGO</nuxt-link>
-            LOGO
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex">
-                <div class="title">TGE 邏捷運通有限公司</div>
-                <span>（Top Global Express）</span>
-            </div>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-nav">
-                <li class="nav-item">
-                    <nuxt-link to="/about">關於我們</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/server">服務介紹及費用</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/forbid">禁運用品及限制</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/news">最新公告</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/orderNum">單號查詢</nuxt-link>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>-->
+<style scoped>
+    .flex-grow {
+        flex-grow: 1;
+    }
+    .text-decoration-none {
+        text-decoration: none;
+    }
+</style>
