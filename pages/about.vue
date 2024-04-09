@@ -10,8 +10,7 @@
     <section>
         <div class="wrap">
             <div class="title">關於我們</div>
-
-            <el-row justify="space-between" :gutter="20">
+            <el-row justify="space-between" :gutter="20" style="align-items: center">
                 <el-col :span="11">
                     <div style="display: flex; align-items: center">
                         <div
@@ -73,8 +72,41 @@
                     </el-row>
                 </el-col>
             </el-row>
+            <div style="display: flex; width: 100%; margin: 36px 0px">
+                <div style="width: 360px">
+                    <img style="width: 100%" src="@/assets/images/home/card-img-01.jpg">
+                </div>
+                <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
+                    <h1 style="margin-bottom: 0px; color: firebrick; font-size: 32px">"展現 職人精神"</h1>
+                    <p>「在每個細節中流露著匠心，我們以職人的精神，專注於每一個步驟，為您提供卓越的品質和服務。」</p>
+                </div>
+            </div>
+            <div style="display: flex; width: 100%; margin: 36px 0px">
+                <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
+                    <h1 style="margin-bottom: 0px; color: firebrick; font-size: 32px">"貫徹 親民服務"</h1>
+                    <p>「我們始終貫徹親民服務的理念，以親切專業的態度，為每位客戶提供貼心周到的服務，讓您感受到我們的用心與關懷。」</p>
+                </div>
+                <div style="width: 360px">
+                    <img style="width: 100%" src="@/assets/images/home/card-img-01.jpg">
+                </div>
+            </div>
         </div>
     </section>
+    <div class="step-card">
+        <div class="step-content">
+            <h2 style="margin-top: 0px">
+                <strong>科學管理 現代化實踐</strong>
+            </h2>
+            <p>
+                內文內文內文內文內文內文內文內文內文內文內文內文內文內文內
+                文內文內文內文內文內文內文內文內文內文
+            </p>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 108px 0px">
+        <h2 style="margin-bottom: 32px">邏捷通運為您  達到審時 CP值高的服務</h2>
+        <div style="background-color: rgb(32, 151, 219); width: 240px; height: 6px;"></div>
+    </div>
 </template>
 
 <style scoped>
@@ -84,8 +116,6 @@
 }
 section {
     padding: 36px 0px;
-    display: flex;
-    justify-content: center;
 }
 .title {
     display: flex;
@@ -115,5 +145,32 @@ section {
     font-size: 28px;
     font-weight: bold;
     aspect-ratio: 1/1;
+}
+
+.step-card{
+	position: relative;
+	padding: 108px 32px;
+	background-size: cover; /* 确保图像覆盖整个容器 */
+	background-position: center; /* 将背景图像置中 */
+	overflow: hidden;
+	/* background-size: cover; */
+	/* background-image: url("assets/images/home/step-img-01.jpg"); */
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.step-card::before {
+	content: ''; /* 伪元素内容为空 */
+	position: absolute; /* 绝对定位 */
+	top: 0;
+	left: 0;
+	width: 100%; /* 宽度100% */
+	height: 100%; /* 高度100% */
+	background-image: url('assets/images/home/step-img-01.jpg'); /* 背景图片 */
+	background-size: cover; /* 图片铺满 */
+	background-position: center; /* 图片居中 */
+	opacity: 1; /* 透明度 */
+	z-index: -1; /* 位于底部 */
+}
+.step-content {
+    text-align: center;
 }
 </style>
