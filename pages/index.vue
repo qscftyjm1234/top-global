@@ -150,8 +150,8 @@ const handleClick = (tab, event) => {
 					<el-collapse v-model="activeName" accordion>
 					<el-collapse-item title="公司收費為啥?" name="1">
 						<div>
-						Consistent with real life: in line with the process and logic of real
-						life, and comply with languages and habits that the users are used to;
+                            Consistent with real life: in line with the process and logic of real
+                            life, and comply with languages and habits that the users are used to;
 						</div>
 						<div>
 						Consistent within interface: all elements should be consistent, such
