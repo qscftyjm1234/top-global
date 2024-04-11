@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 16:59:12
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-10 14:54:06
+ * @LastEditTime: 2024-04-11 12:54:34
  * @FilePath: \top-glob\pages\news.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -18,24 +18,28 @@
             title: '清明連假',
             content: '4/4~4/7 有連續假期。',
             fbUrl: 'https://www.facebook.com/photo.php?fbid=333397176402219&set=pb.100091958164533.-2207520000&type=3',
+            date: "2024-04-11",
         },
         {
             imgUrl: cardImg02,
             title: '越南生活用品快遞 只要230元',
             content: '每週三跟週五發貨，有興趣寄送的請洽業務。',
             fbUrl: 'https://www.facebook.com/photo/?fbid=325322593876344&set=pb.100091958164533.-2207520000',
+            date: "2024-04-11",
         },
         {
             imgUrl: cardImg03,
             title: '紀念 “婦女節” ',
             content: 'TGE向廣大客戶致以最美好的祝福！ 祝福全世界的女性朋友們每天都過得快快樂樂🎉。',
             fbUrl: 'https://www.facebook.com/photo.php?fbid=319334087808528&set=pb.100091958164533.-2207520000&type=3',
+            date: "2024-04-11",
         },
         {
             imgUrl: cardImg04,
             title: '元旦放假通知',
             content: 'TGE 謝謝各位夥伴們跟著我們一起走完了2023年接下來我們要一起迎接2024年 🎇🎆🎇🎆。',
             fbUrl: 'https://www.facebook.com/photo.php?fbid=278238605251410&set=pb.100091958164533.-2207520000&type=3',
+            date: "2024-04-11",
         },
     ])
 </script>
@@ -50,7 +54,8 @@
                         <div style="padding: 12px">
                             <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
                             <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-                            <div style="text-align: right; margin-top: 12px">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
+                                <el-text class="" type="info">{{ item.date }}</el-text>
                                 <a :href="item.fbUrl" style="">
                                     <el-button type="primary" plain>
                                         前往貼文

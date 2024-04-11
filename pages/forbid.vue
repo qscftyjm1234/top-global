@@ -2,13 +2,12 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-10 17:10:22
+ * @LastEditTime: 2024-04-11 11:57:13
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script lang="ts" setup>
     import { ref } from 'vue'
-    
     import img02 from '@/assets/images/forbid/forbid-img-02.jpg';
     import img03 from '@/assets/images/forbid/forbid-img-03.jpg';
     import img04 from '@/assets/images/forbid/forbid-img-04.jpg';
@@ -17,10 +16,6 @@
     import img07 from '@/assets/images/forbid/forbid-img-07.jpg';
     import img08 from '@/assets/images/forbid/forbid-img-08.jpg';
     import img09 from '@/assets/images/forbid/forbid-img-09.jpg';
-    const activeName = ref('1');
-    const handleClick = (tab, event) => {
-        console.log(tab, event)
-    };
     const forbidGoods = ref([
         { title: "火藥類", content: "煙火、爆竹、火藥、彈藥等", imgUrl: img06, },
         { title: "易燃液體", content: "打火機油、油漆、指甲油、美甲凝膠、酒精、稀釋劑、塗料、光漆、香水、精油等。", imgUrl: img02, },
@@ -36,6 +31,12 @@
             imgUrl: img08,
         },
     ]);
+
+    
+    const activeName = ref('1');
+    const handleClick = (tab, event) => {
+        console.log(tab, event)
+    };
 </script>
 <template>
     <section>

@@ -1,8 +1,15 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
+import goodsImg01 from '@/assets/images/home/goods-img-01.jpg';
+import goodsImg02 from '@/assets/images/home/goods-img-02.jpg';
+import goodsImg03 from '@/assets/images/home/goods-img-03.jpg';
+import goodsImg04 from '@/assets/images/home/goods-img-04.jpg';
+
+
+import newsImg01 from '@/assets/images/news/card-img-01.jpg';
+import newsImg02 from '@/assets/images/news/card-img-02.jpg';
+import newsImg03 from '@/assets/images/news/card-img-03.jpg';
 const activeName = ref('1');
-
-
 const fadeInElements = ref([]);
 onMounted(() => {
     fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'))
@@ -39,7 +46,47 @@ const activeTabName = ref('first')
 
 const handleClick = (tab, event) => {
   console.log(tab, event)
-}
+};
+
+const goodsServers = reactive([
+	{ title: "空運快遞", content: "迅速將您的包裹送達全球，提供高效、安全的國際運輸服務。", imgUrl: goodsImg01 },
+	{ title: "專業貨運服務", content: "專業、快速，完美處理您的物流需求。", imgUrl: goodsImg02 },
+	{ title: "集運海運", content: "全球物流解決方案，海運專業服務。", imgUrl: goodsImg03 },
+	{ title: "多國進出口服務", content: "精準物流方案，專業解決您的進出口需求。", imgUrl: goodsImg04 },
+]);
+// 流程
+const steps = reactive([
+	{ title: "下單前請先確認商品是否可以進口" },
+	{ title: "申請EZ WAY實名認證" },
+	{ title: "下單後請告知我們您的運單號碼" },
+	{ title: "告知我們您的實名認證+收件資訊(姓名、電話、地址、身分證)" },
+	{ title: "貨到台灣會通知付款(運費+稅金)" },
+	{ title: "確認款項後就可以發貨質送到家" },
+]);
+// 最新消息
+const news = reactive([
+	{
+		imgUrl: newsImg01,
+		title: '清明連假',
+		content: '4/4~4/7 有連續假期。',
+		fbUrl: 'https://www.facebook.com/photo.php?fbid=333397176402219&set=pb.100091958164533.-2207520000&type=3',
+		date: "2024-04-11",
+	},
+	{
+		imgUrl: newsImg02,
+		title: '越南生活用品快遞 只要230元',
+		content: '每週三跟週五發貨，有興趣寄送的請洽業務。',
+		fbUrl: 'https://www.facebook.com/photo/?fbid=325322593876344&set=pb.100091958164533.-2207520000',
+		date: "2024-04-11",
+	},
+	{
+		imgUrl: newsImg03,
+		title: '紀念 “婦女節” ',
+		content: 'TGE向廣大客戶致以最美好的祝福！ 祝福全世界的女性朋友們每天都過得快快樂樂🎉。',
+		fbUrl: 'https://www.facebook.com/photo.php?fbid=319334087808528&set=pb.100091958164533.-2207520000&type=3',
+		date: "2024-04-11",
+	},
+])
 </script>
 <template>
     <div class="block text-center">
@@ -52,30 +99,32 @@ const handleClick = (tab, event) => {
             </el-carousel-item>
         </el-carousel>
     </div>
-    <section>
-        <el-row justify="space-between" :gutter="20" class="wrap">
-            <el-col :span="8">
-                <el-card shadow="hover" style="border: 0px">
-                    <img style="width: 100%" src="@/assets/images/home/card-img-01.jpg">
-                    <h3 style="margin: 8px 0px">台灣到越南快遞超級優惠價</h3>
-                    <el-text class="mx-1" type="info">生活用品只要230元，請假業務詢問，了解相關資訊。</el-text>
-                </el-card>
-            </el-col>
-            <el-col :span="8">
-                <el-card shadow="hover" style="border: 0px">
-                    <img style="width: 100%" src="@/assets/images/home/card-img-02.jpg">
-                    <h3 style="margin: 8px 0px">溝通超便利</h3>
-                    <el-text class="mx-1" type="info">專業的外語業務，將為您方便解決問題。</el-text>
-                </el-card>
-            </el-col>
-            <el-col :span="8">
-                <el-card shadow="hover" style="border: 0px">
-                    <img style="width: 100%" src="@/assets/images/home/card-img-03.jpg">
-                    <h3 style="margin: 8px 0px">紀念 “婦女節”強檔活動</h3>
-                    <el-text class="mx-1" type="info">感謝您為我們今天的成就做出的貢獻，推出超值優惠。</el-text>
-                </el-card>
-            </el-col>
-        </el-row>
+    <section style="position: relative;">
+		<!-- <img src="@/assets/images/home/bg-01.png" alt="" style="position: absolute; right: 0; top: 0"> -->
+		<div class="wrap">
+			<el-row :gutter="20" style="align-items: center; border-radius: 8px">
+                <el-col :span="8" v-for="item in news">
+                    <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px" class="fade-in">
+                        <img style="width: 100%" :src="item.imgUrl">
+                        <div style="padding: 12px">
+                            <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+                            <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
+                                <el-text class="" type="info">{{ item.date }}</el-text>
+                                <a :href="item.fbUrl" style="">
+                                    <el-button type="primary" plain>
+                                        前往貼文
+                                    </el-button>
+                                </a>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-row>
+			<div class="mb-4" style="text-align: center">
+				<el-button type="primary" round>查看更多公告<el-icon><ArrowRightBold /></el-icon></el-button>
+			</div>
+		</div>
     </section>
     <section style="background-color: #f7f7f7">
       <el-row justify="space-between" :gutter="20" class="wrap">
@@ -84,55 +133,14 @@ const handleClick = (tab, event) => {
                   服務項目
               </div>
               <el-row :gutter="20">
-                <el-col :span="12" style="margin-bottom: 20px">
-                  <el-card style="border: 0px" :body-style="{ width: '100%', display: 'flex', padding: '0px' }">
-                    <div style="min-width: 180px; width: 180px">
-                        <img src="@/assets/images/home/card-img-04.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="...">
+                <el-col :span="12" style="margin-bottom: 20px" v-for="item in goodsServers">
+                  <el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
+                    <div style="min-width: 180px; width: 180px; height: 100%;">
+                        <img :src="item.imgUrl" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" alt="...">
                     </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; width: 100%">
-                        <h3 style="margin: 0px;">集運</h3>
-                        <p>
-                            將多個貨物集中在一起，以提高運輸效率和降低成本的運送
-                        </p>
-                    </div>
-                  </el-card>
-                </el-col>
-                <el-col :span="12">
-                  <el-card style="border: 0px" :body-style="{ width: '100%', display: 'flex', padding: '0px' }">
-                    <div style="min-width: 180px; width: 180px">
-                        <img src="@/assets/images/home/card-img-05.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="...">
-                    </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; width: 100%">
-                        <h3 style="margin: 0px;">專線快遞</h3>
-                        <p>
-                            專業、快速、安全的速遞服務
-                        </p>
-                    </div>
-                  </el-card>
-                </el-col>
-                <el-col :span="12">
-                  <el-card style="border: 0px" :body-style="{ width: '100%', display: 'flex', padding: '0px' }">
-                    <div style="min-width: 180px; width: 180px">
-                        <img src="@/assets/images/home/card-img-06.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="...">
-                    </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; width: 100%">
-                        <h3 style="margin: 0px;">海運空運</h3>
-                        <p>
-                            海運適合大批量貨物，穩定可靠；而空運則迅速高效，適合緊急時限的運送
-                        </p>
-                    </div>
-                  </el-card>
-                </el-col>
-                <el-col :span="12">
-                  <el-card style="border: 0px" :body-style="{ width: '100%', display: 'flex', padding: '0px' }">
-                    <div style="min-width: 180px; width: 180px">
-                        <img src="@/assets/images/home/card-img-07.png" style="width: 100%; height: 100%; object-fit: cover;" alt="...">
-                    </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; width: 100%">
-                        <h3 style="margin: 0px;">倉儲服務</h3>
-                        <p>
-                            安全、可靠、高效的貨物存儲與管理
-                        </p>
+                    <div style="display: flex; flex-direction: column; justify-content: center; padding: 24px; width: 100%">
+                        <h2 style="margin: 0px;">{{ item.title }}</h2>
+                        <p><el-text class="mx-1" type="info">{{ item.content }}</el-text></p>
                     </div>
                   </el-card>
                 </el-col>
@@ -205,22 +213,18 @@ const handleClick = (tab, event) => {
 				</div>
 				<el-tabs v-model="activeTabName" class="demo-tabs" @tab-click="handleClick">
 					<el-tab-pane label="集運流程" name="first">
-						<div class="step-card">
+						<div class="step-card" style="margin: 16px 0px" v-for="(item, index) in steps">
 							<div class="step-num">
-								1
+								{{ index + 1 }}
 							</div>
 							<div class="step-content">
-								<h2 style="margin-top: 0px">
-									<strong>海外各地下單</strong>
+								<h2 style="margin: 0px">
+									<strong>{{ item.title }}</strong>
 								</h2>
-								<p>
-									內文內文內文內文內文內文內文內文內文內文內文內文內文內文內
-									文內文內文內文內文內文內文內文內文內文
-								</p>
 							</div>
 						</div>
 					</el-tab-pane>
-					<el-tab-pane label="進偶流程" name="second">
+					<el-tab-pane label="進口流程" name="second">
 						
 					</el-tab-pane>
 					<el-tab-pane label="出口流程" name="third">
@@ -230,22 +234,17 @@ const handleClick = (tab, event) => {
           </el-col>
       </el-row>
     </section>
-
-    <div class='fade-in full-width'>13</div>
-    <div class='fade-in full-width'>13</div>
-    <div class='half-width fade-in'>13</div>
-    <div class='half-width fade-in'>13</div>
 </template>
 
 <style scoped>
 .wrap {
   width: 1080px;
-  margin: 0px auto;
+  margin: 0px auto imo !important;
 }
 section {
-  padding: 36px 0px; 
-  display: flex; 
-  justify-content: center
+  padding: 36px 0px;
+  display: flex;
+  justify-content: center;
 }
 .title {
     display: flex;
@@ -253,7 +252,6 @@ section {
     line-height: 42px;
     font-size: 24px;
     font-weight: bold;
-    color: rgb(32, 151, 219);
     margin-bottom: 24px;
 }
 
@@ -281,14 +279,11 @@ section {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
-
-
-
 .step-card{
 	position: relative;
 	display: flex;
 	border-radius: 8px;
-	padding: 64px 32px;
+	padding: 32px;
 	background-size: cover; /* 确保图像覆盖整个容器 */
 	background-position: center; /* 将背景图像置中 */
 	border-radius: 16px;
@@ -327,6 +322,8 @@ section {
 .step-card .step-content {
     display: flex;
     flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 .step-card .step-content p{
     margin: 0px;
@@ -335,13 +332,12 @@ section {
 
 
 
-
-
-
-
-
 .fade-in {
-    background-color: #2ecc71;
+	
+    opacity: 0;
+    transition: 1s all ease-out;
+    transform: scale(0.8);
+    /* background-color: #2ecc71;
     height: 500px;
     margin-bottom: 50px;
     opacity: 0;
@@ -349,7 +345,7 @@ section {
     transform: scale(0.8);
     box-sizing: border-box;
     padding: 20px;
-    display: inline-block;
+    display: inline-block; */
   }
   .full-width{
     width: 100%;
