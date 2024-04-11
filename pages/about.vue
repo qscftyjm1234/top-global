@@ -2,15 +2,41 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-02 14:30:56
+ * @LastEditTime: 2024-04-11 18:03:30
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
+
+<script setup>
+import { ref, reactive, onMounted } from 'vue';
+onMounted(() => {
+    fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'));
+    document.addEventListener('scroll', handleScroll);
+    handleScroll();
+});
+const fadeInElements = ref([]);
+const handleScroll = (evt) => {
+    for (var i = 0; i < fadeInElements.value.length; i++) {
+    var elem = fadeInElements.value[i]
+    if (isElemVisible(elem)) {
+        elem.style.opacity = '1'
+        elem.style.transform = 'scale(1)'
+        fadeInElements.value.splice(i, 1) // 只让它运行一次
+    }
+    }
+};
+const isElemVisible = (el) => {
+  var rect = el.getBoundingClientRect()
+  var elemTop = rect.top + 200 // 200 = buffer
+  var elemBottom = rect.bottom
+  return elemTop < window.innerHeight && elemBottom >= 0
+};
+</script>
 <template>
     <section>
         <div class="wrap">
             <div class="title">關於我們</div>
-            <el-row justify="space-between" :gutter="20" style="align-items: center">
+            <el-row justify="space-between" :gutter="20" style="align-items: center; margin-bottom: 48px">
                 <el-col :span="11">
                     <div style="display: flex; align-items: center">
                         <div
@@ -32,7 +58,7 @@
                             >
                         </div>
                     </div>
-                    <p style="line-height: 1.5rem; margin-top: 24px">
+                    <p style="line-height: 2rem; margin-top: 24px">
                         <b>邏捷通運(TGE)</b>是一間台灣在地公司，成立於西元
                         2023年，從事越南、印尼與日本的物流]輸企業，提
                         供客戶最專業可靠的服務。 們的員工在業界歷都
@@ -45,49 +71,49 @@
                 <el-col :span="13">
                     <el-row justify="center" :gutter="40">
                         <el-col :span="8">
-                            <div class="circle">
+                            <div class="circle fade-in">
                                 安全
                             </div>
                         </el-col>
                         <el-col :span="8">
-                            <div class="circle">
+                            <div class="circle fade-in">
                                 信賴
                             </div>
                         </el-col>
                         <el-col :span="8">
-                            <div class="circle">
+                            <div class="circle fade-in">
                                 快速
                             </div>
                         </el-col>
                         <el-col :span="8">
-                            <div class="circle">
+                            <div class="circle fade-in">
                                 專業
                             </div>
                         </el-col>
                         <el-col :span="8">
-                            <div class="circle">
+                            <div class="circle fade-in">
                                 親民
                             </div>
                         </el-col>
                     </el-row>
                 </el-col>
             </el-row>
-            <div style="display: flex; width: 100%; margin: 36px 0px">
-                <div style="width: 360px">
-                    <img style="width: 100%" src="@/assets/images/home/card-img-01.jpg">
+            <div style="display: flex; width: 100%; margin: 48px 0px; border-radius: 50px; overflow: hidden" class="fade-in">
+                <div style="width: 360px; aspect-ratio: 1/1; overflow: hidden">
+                    <img style="width: 100%; height: 100%;object-fit: cover;" src="@/assets/images/about/about-img-01.jpg">
                 </div>
                 <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
                     <h1 style="margin-bottom: 0px; color: firebrick; font-size: 32px">"展現 職人精神"</h1>
                     <p>「在每個細節中流露著匠心，我們以職人的精神，專注於每一個步驟，為您提供卓越的品質和服務。」</p>
                 </div>
             </div>
-            <div style="display: flex; width: 100%; margin: 36px 0px">
+            <div style="display: flex; width: 100%; margin: 48px 0px; border-radius: 50px; overflow: hidden" class="fade-in">
                 <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
                     <h1 style="margin-bottom: 0px; color: firebrick; font-size: 32px">"貫徹 親民服務"</h1>
                     <p>「我們始終貫徹親民服務的理念，以親切專業的態度，為每位客戶提供貼心周到的服務，讓您感受到我們的用心與關懷。」</p>
                 </div>
-                <div style="width: 360px">
-                    <img style="width: 100%" src="@/assets/images/home/card-img-01.jpg">
+                <div style="width: 360px; aspect-ratio: 1/1; overflow: hidden">
+                    <img style="width: 100%; height: 100%; object-fit: cover;" src="@/assets/images/about/about-img-02.webp">
                 </div>
             </div>
         </div>
@@ -103,9 +129,9 @@
             </p>
         </div>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 108px 0px">
-        <h2 style="margin-bottom: 32px">邏捷通運為您  達到審時 CP值高的服務</h2>
-        <div style="background-color: rgb(32, 151, 219); width: 240px; height: 6px;"></div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 108px 0px" class="fade-in">
+        <h2 style="margin-bottom: 20px">邏捷通運為您  省時、省力，打造CP質最高的服務</h2>
+        <div style="background-color: firebrick; width: 96px; height: 5px; margin-bottom: 20px"></div>
     </div>
 </template>
 
@@ -123,7 +149,6 @@ section {
     line-height: 42px;
     font-size: 24px;
     font-weight: bold;
-    color: rgb(32, 151, 219);
     margin-bottom: 24px;
 }
 
@@ -138,7 +163,7 @@ section {
 }
 .circle {
     border-radius: 50%;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2); 
+    box-shadow: inset 5px 5px 10px rgba(83, 83, 83, 0.2); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,5 +197,10 @@ section {
 }
 .step-content {
     text-align: center;
+}
+.fade-in {
+    opacity: 0;
+    transition: 0.5s all ease-out;
+    transform: scale(0.8);
 }
 </style>

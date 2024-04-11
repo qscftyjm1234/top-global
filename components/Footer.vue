@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 15:56:22
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-09 16:49:32
+ * @LastEditTime: 2024-04-11 15:14:56
  * @FilePath: \top-glob\components\Footer.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -93,13 +93,13 @@
             Copyright 2024 © 邏捷運通有限公司 All Rights Reserved
         </div>
 
-        <el-affix position="bottom" :offset="20">
+        <!-- <el-affix position="bottom" :offset="20">
             <div style="width: 32px; margin-right: 12px">
                 <a href="https://www.instagram.com/tge_global_express/">
                     <img style="width: 100%" src="@/assets/images/footer/ig.webp" />
                 </a>
             </div>
-        </el-affix>
+        </el-affix> -->
 
     
 

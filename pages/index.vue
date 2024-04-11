@@ -4,17 +4,15 @@ import goodsImg01 from '@/assets/images/home/goods-img-01.jpg';
 import goodsImg02 from '@/assets/images/home/goods-img-02.jpg';
 import goodsImg03 from '@/assets/images/home/goods-img-03.jpg';
 import goodsImg04 from '@/assets/images/home/goods-img-04.jpg';
-
-
 import newsImg01 from '@/assets/images/news/card-img-01.jpg';
 import newsImg02 from '@/assets/images/news/card-img-02.jpg';
 import newsImg03 from '@/assets/images/news/card-img-03.jpg';
 const activeName = ref('1');
 const fadeInElements = ref([]);
 onMounted(() => {
-    fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'))
-    document.addEventListener('scroll', handleScroll)
-    handleScroll()
+    fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'));
+    document.addEventListener('scroll', handleScroll);
+    handleScroll();
     fetch("https://api.unsplash.com/photos/?client_id=XeMLEo-cG4umamAaRPxahF5CC7nhdSYGtbKlmU1O7Sk")
     .then(async(res) => {
         const data = res.json();
@@ -56,7 +54,7 @@ const goodsServers = reactive([
 ]);
 // 流程
 const steps = reactive([
-	{ title: "下單前請先確認商品是否可以進口" },
+	{ title: "下單前請先確認商品是否可以進口?" },
 	{ title: "申請EZ WAY實名認證" },
 	{ title: "下單後請告知我們您的運單號碼" },
 	{ title: "告知我們您的實名認證+收件資訊(姓名、電話、地址、身分證)" },
@@ -86,6 +84,11 @@ const news = reactive([
 		fbUrl: 'https://www.facebook.com/photo.php?fbid=319334087808528&set=pb.100091958164533.-2207520000&type=3',
 		date: "2024-04-11",
 	},
+])
+// 問題
+const questions = reactive([
+	{ title: "服務國家?", content: "包含越南、印尼、泰國、大陸、日本、菲律賓、美國等等，更多詳細內容可詢問小編喔!!", name: 1 },
+	{ title: "如何聯絡我們?", content: "<a href='https://line.me/R/ti/p/@893zlowm' target='_blan'>https://line.me/R/ti/p/@893zlowm</a>  或透過搜尋ID：@893ZLOWM，歡迎詢問我們唷!", name: 2 },
 ])
 </script>
 <template>
@@ -121,32 +124,41 @@ const news = reactive([
                     </el-card>
                 </el-col>
             </el-row>
-			<div class="mb-4" style="text-align: center">
-				<el-button type="primary" round>查看更多公告<el-icon><ArrowRightBold /></el-icon></el-button>
+			<div style="text-align: center; margin-top: 32px">
+				<NuxtLink to="/news" class="text-decoration-none">
+					<el-button type="primary" round>查看更多公告<el-icon><ArrowRightBold /></el-icon></el-button>
+				</NuxtLink>
 			</div>
 		</div>
     </section>
     <section style="background-color: #f7f7f7">
-      <el-row justify="space-between" :gutter="20" class="wrap">
-          <el-col>
-              <div class="title">
-                  服務項目
-              </div>
-              <el-row :gutter="20">
-                <el-col :span="12" style="margin-bottom: 20px" v-for="item in goodsServers">
-                  <el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
-                    <div style="min-width: 180px; width: 180px; height: 100%;">
-                        <img :src="item.imgUrl" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" alt="...">
-                    </div>
-                    <div style="display: flex; flex-direction: column; justify-content: center; padding: 24px; width: 100%">
-                        <h2 style="margin: 0px;">{{ item.title }}</h2>
-                        <p><el-text class="mx-1" type="info">{{ item.content }}</el-text></p>
-                    </div>
-                  </el-card>
-                </el-col>
-              </el-row>
-          </el-col>
-      </el-row>
+		<div>
+			<el-row justify="space-between" :gutter="20" class="wrap">
+				<el-col>
+					<div class="title">
+						服務項目
+					</div>
+					<el-row :gutter="20">
+						<el-col :span="12" style="margin-bottom: 20px" v-for="item in goodsServers">
+							<el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
+								<div style="min-width: 180px; width: 180px; height: 100%;">
+									<img :src="item.imgUrl" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" alt="...">
+								</div>
+								<div style="display: flex; flex-direction: column; justify-content: center; padding: 24px; width: 100%">
+									<h2 style="margin: 0px;">{{ item.title }}</h2>
+									<p><el-text class="mx-1" type="info">{{ item.content }}</el-text></p>
+								</div>
+							</el-card>
+						</el-col>
+					</el-row>
+				</el-col>
+			</el-row>
+			<div style="text-align: center; margin-top: 32px">
+				<NuxtLink to="/server" class="text-decoration-none">
+					<el-button type="primary" round href="#">查看更多服務項目<el-icon><ArrowRightBold /></el-icon></el-button>
+				</NuxtLink>
+			</div>
+		</div>
     </section>
     <section>
       <el-row justify="space-between" :gutter="20" class="wrap">
@@ -156,50 +168,9 @@ const news = reactive([
 				</div>
 				<div class="demo-collapse">
 					<el-collapse v-model="activeName" accordion>
-					<el-collapse-item title="公司收費為啥?" name="1">
-						<div>
-                            Consistent with real life: in line with the process and logic of real
-                            life, and comply with languages and habits that the users are used to;
-						</div>
-						<div>
-						Consistent within interface: all elements should be consistent, such
-						as: design style, icons and texts, position of elements, etc.
-						</div>
-					</el-collapse-item>
-					<el-collapse-item title="公司某某資訊為何?" name="2">
-						<div>
-						Operation feedback: enable the users to clearly perceive their
-						operations by style updates and interactive effects;
-						</div>
-						<div>
-						Visual feedback: reflect current state by updating or rearranging
-						elements of the page.
-						</div>
-					</el-collapse-item>
-					<el-collapse-item title="如何查詢貨物狀況?" name="3">
-						<div>
-						Simplify the process: keep operating process simple and intuitive;
-						</div>
-						<div>
-						Definite and clear: enunciate your intentions clearly so that the
-						users can quickly understand and make decisions;
-						</div>
-						<div>
-						Easy to identify: the interface should be straightforward, which helps
-						the users to identify and frees them from memorizing and recalling.
-						</div>
-					</el-collapse-item>
-					<el-collapse-item title="服務國家?" name="4">
-						<div>
-						Decision making: giving advices about operations is acceptable, but do
-						not make decisions for the users;
-						</div>
-						<div>
-						Controlled consequences: users should be granted the freedom to
-						operate, including canceling, aborting or terminating current
-						operation.
-						</div>
-					</el-collapse-item>
+						<el-collapse-item :title="item.title" :name="item.name" v-for="item in questions">
+							<div style="font-size: 16px;" v-html="item.content"></div>
+						</el-collapse-item>
 					</el-collapse>
 				</div>
           </el-col>
@@ -213,9 +184,9 @@ const news = reactive([
 				</div>
 				<el-tabs v-model="activeTabName" class="demo-tabs" @tab-click="handleClick">
 					<el-tab-pane label="集運流程" name="first">
-						<div class="step-card" style="margin: 16px 0px" v-for="(item, index) in steps">
+						<div class="step-card fade-in" style="margin: 16px 0px" v-for="(item, index) in steps">
 							<div class="step-num">
-								{{ index + 1 }}
+								{{ index + 1 }}.
 							</div>
 							<div class="step-content">
 								<h2 style="margin: 0px">
@@ -225,10 +196,10 @@ const news = reactive([
 						</div>
 					</el-tab-pane>
 					<el-tab-pane label="進口流程" name="second">
-						
+						等待提供，或移除
 					</el-tab-pane>
 					<el-tab-pane label="出口流程" name="third">
-						
+						等待提供，或移除
 					</el-tab-pane>
 				</el-tabs>
           </el-col>
@@ -288,9 +259,8 @@ section {
 	background-position: center; /* 将背景图像置中 */
 	border-radius: 16px;
 	overflow: hidden;
-	/* background-size: cover; */
-	/* background-image: url("assets/images/home/step-img-01.jpg"); */
 	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: inset 5px 5px 10px rgba(194, 194, 194, 0.2);
 }
 .step-card::before {
 	content: ''; /* 伪元素内容为空 */
@@ -299,11 +269,12 @@ section {
 	left: 0;
 	width: 100%; /* 宽度100% */
 	height: 100%; /* 高度100% */
-	background-image: url('assets/images/home/step-img-01.jpg'); /* 背景图片 */
+	background-image: url('assets/images/home/step-img-02.jpg'); /* 背景图片 */
 	background-size: cover; /* 图片铺满 */
 	background-position: center; /* 图片居中 */
 	opacity: 1; /* 透明度 */
 	z-index: -1; /* 位于底部 */
+	opacity: 0.1;
 }
 
 .step-card .step-num {
@@ -329,13 +300,9 @@ section {
     margin: 0px;
 }
 
-
-
-
 .fade-in {
-	
     opacity: 0;
-    transition: 1s all ease-out;
+    transition: 1.2s all ease-out;
     transform: scale(0.8);
     /* background-color: #2ecc71;
     height: 500px;
