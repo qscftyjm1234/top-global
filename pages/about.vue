@@ -9,11 +9,14 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
+import { isMobile } from '@/utils/tools.js' 
 onMounted(() => {
     fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'));
     document.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll();    
+	isMobileLayout.value = isMobile();
 });
+const isMobileLayout = ref(false);
 const fadeInElements = ref([]);
 const handleScroll = (evt) => {
     for (var i = 0; i < fadeInElements.value.length; i++) {
@@ -31,19 +34,28 @@ const isElemVisible = (el) => {
   var elemBottom = rect.bottom
   return elemTop < window.innerHeight && elemBottom >= 0
 };
+const tagers = [
+  { title: '安全', imgUrl: '2018-04-15',},
+  { title: '信賴', imgUrl: '2018-04-15',},
+  { title: '快速', imgUrl: '2018-04-15',},
+  { title: '專業', imgUrl: '2018-04-15',},
+  { title: '親民', imgUrl: '2018-04-15',},
+]
 </script>
 <template>
     <section>
-        <div class="wrap">
+        <div :class="isMobileLayout ? '' : 'wrap'">
             <div class="title">關於我們</div>
-            <el-row justify="space-between" :gutter="20" style="align-items: center; margin-bottom: 48px">
-                <el-col :span="11">
+            <el-row justify="space-between" :gutter="20" style="align-items: center;">
+                <el-col :span="11" :xs="24">
                     <div style="display: flex; align-items: center">
                         <div
                             style="
                                 width: 120px;
                                 height: 120px;
                                 margin-right: 20px;
+                                overflow: hidden; 
+                                border-radius: 16px;
                             "
                         >
                             <img
@@ -52,7 +64,7 @@ const isElemVisible = (el) => {
                             />
                         </div>
                         <div>
-                            <h3 style="margin: 4px 0px">邏捷運通有限公司</h3>
+                            <h1 style="margin: 4px 0px">邏捷運通有限公司</h1>
                             <el-text class="mx-1" type="info"
                                 >Top GlobaL Express</el-text
                             >
@@ -68,34 +80,30 @@ const isElemVisible = (el) => {
                         TGE，您就是 們的VIP。
                     </p>
                 </el-col>
-                <el-col :span="13">
-                    <el-row justify="center" :gutter="40">
-                        <el-col :span="8">
-                            <div class="circle fade-in">
-                                安全
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div class="circle fade-in">
-                                信賴
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div class="circle fade-in">
-                                快速
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div class="circle fade-in">
-                                專業
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div class="circle fade-in">
-                                親民
-                            </div>
-                        </el-col>
-                    </el-row>
+                <el-col :span="13" :xs="24">
+                    <el-carousel :interval="2000" type="card" height="200">
+                        <el-carousel-item style="overflow: hidden; border-radius: 16px">
+                            <img src="@/assets/images/about/about-img-03.jpg" style="width: 100%; height: 100%; object-fit: cover" alt="">
+                        </el-carousel-item>
+                        <el-carousel-item style="overflow: hidden; border-radius: 16px">
+                            <img src="@/assets/images/about/about-img-04.jpg" style="width: 100%; height: 100%; object-fit: cover" alt="">
+                        </el-carousel-item>
+                        <el-carousel-item style="overflow: hidden; border-radius: 16px">
+                            <img src="@/assets/images/about/about-img-05.jpg" style="width: 100%; height: 100%; object-fit: cover" alt="">
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-col>
+            </el-row>
+            <hr style= "border:1px dashed #b8b8b8; margin: 24px 0px" />
+            <div class="title">五大目標</div>
+            <el-row justify="center" :gutter="24" style="margin: 64px 0px">
+                <el-col :span="4" :xs="8" v-for="(item, index) in tagers" :key="index">
+                    <div style="text-align: center" class="hoverItem">
+                        <div class="circle fade-in">
+                            <h2>{{ item.title }}</h2>
+                            <!-- <img src="@/assets/images/about/about-img-05.jpg" style="width: 100%; height: 100%; object-fit: cover" alt=""> -->
+                        </div>
+                    </div>
                 </el-col>
             </el-row>
             <div style="display: flex; width: 100%; margin: 48px 0px; border-radius: 50px; overflow: hidden" class="fade-in">
@@ -103,13 +111,13 @@ const isElemVisible = (el) => {
                     <img style="width: 100%; height: 100%;object-fit: cover;" src="@/assets/images/about/about-img-01.jpg">
                 </div>
                 <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
-                    <h1 style="margin-bottom: 0px; color: firebrick; font-size: 32px">"展現 職人精神"</h1>
+                    <h1 style="margin-bottom: 0px; color: firebrick;" :style="{ fontSize: isMobileLayout ? '20px' : '32px'}">"展現 職人精神"</h1>
                     <p>「在每個細節中流露著匠心，我們以職人的精神，專注於每一個步驟，為您提供卓越的品質和服務。」</p>
                 </div>
             </div>
             <div style="display: flex; width: 100%; margin: 48px 0px; border-radius: 50px; overflow: hidden" class="fade-in">
                 <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
-                    <h1 style="margin-bottom: 0px; color: firebrick; font-size: 32px">"貫徹 親民服務"</h1>
+                    <h1 style="margin-bottom: 0px; color: firebrick; font-size: 20px">"貫徹 親民服務"</h1>
                     <p>「我們始終貫徹親民服務的理念，以親切專業的態度，為每位客戶提供貼心周到的服務，讓您感受到我們的用心與關懷。」</p>
                 </div>
                 <div style="width: 360px; aspect-ratio: 1/1; overflow: hidden">
@@ -129,10 +137,25 @@ const isElemVisible = (el) => {
             </p>
         </div>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 108px 0px" class="fade-in">
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 64px 0px" class="fade-in">
         <h2 style="margin-bottom: 20px">邏捷通運為您  省時、省力，打造CP質最高的服務</h2>
         <div style="background-color: firebrick; width: 96px; height: 5px; margin-bottom: 20px"></div>
     </div>
+    <section>
+        <div :class="isMobileLayout ? '' : 'wrap'">
+            <hr style= "border:1px dashed #b8b8b8; margin: 24px 0px" />
+            <h2>【聯絡我們】</h2>
+            <p style="line-height: 2rem">
+                歡迎您的觀看，有任何相關問題，歡迎來信請Email至 <a href="tyn@topglobal.com.tw" target="_blank">tyn@topglobal.com.tw</a> <br />
+                或撥打04-23802660<br />
+                或聯絡我們官方LINE @893ZLOWM<br />
+                與我們連繫。謝謝！
+            </p>
+            <a href="https://lin.ee/lgoVP3a" style="cursor: pointer">
+                <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="48" border="0">
+            </a>
+        </div>
+    </section>
 </template>
 
 <style scoped>
@@ -170,6 +193,32 @@ section {
     font-size: 28px;
     font-weight: bold;
     aspect-ratio: 1/1;
+    overflow: hidden;
+    background-size: cover;
+    color: white;
+    background-color: #414141;
+    margin: 0px;
+}
+.hoverItem {
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+.hoverItem:hover {
+    transform: translateY(-20px);
+}
+.circle::before {
+	content: ''; /* 伪元素内容为空 */
+	position: absolute; /* 绝对定位 */
+	top: 0;
+	left: 0;
+	width: 100%; /* 宽度100% */
+	height: 100%; /* 高度100% */
+	background-image: url("@/assets/images/about/123.jpg");
+	background-size: cover; /* 图片铺满 */
+	background-position: center; /* 图片居中 */
+	opacity: 1; /* 透明度 */
+	z-index: -1; /* 位于底部 */
+	opacity: 0.4;
 }
 
 .step-card{
@@ -202,5 +251,21 @@ section {
     opacity: 0;
     transition: 0.5s all ease-out;
     transform: scale(0.8);
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>

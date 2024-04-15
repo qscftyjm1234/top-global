@@ -7,7 +7,7 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script lang="ts" setup>
-    import { ref } from 'vue'
+    import { ref, reactive, onMounted } from 'vue';
     import img02 from '@/assets/images/forbid/forbid-img-02.jpg';
     import img03 from '@/assets/images/forbid/forbid-img-03.jpg';
     import img04 from '@/assets/images/forbid/forbid-img-04.jpg';
@@ -16,6 +16,28 @@
     import img07 from '@/assets/images/forbid/forbid-img-07.jpg';
     import img08 from '@/assets/images/forbid/forbid-img-08.jpg';
     import img09 from '@/assets/images/forbid/forbid-img-09.jpg';
+    onMounted(() => {
+        fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'));
+        document.addEventListener('scroll', handleScroll);
+        handleScroll();
+    })
+    const fadeInElements = ref([]);
+    const handleScroll = (evt) => {
+        for (var i = 0; i < fadeInElements.value.length; i++) {
+        var elem = fadeInElements.value[i]
+        if (isElemVisible(elem)) {
+            elem.style.opacity = '1'
+            elem.style.transform = 'scale(1)'
+            fadeInElements.value.splice(i, 1) // 只让它运行一次
+        }
+        }
+    };
+    const isElemVisible = (el) => {
+        var rect = el.getBoundingClientRect()
+        var elemTop = rect.top + 200 // 200 = buffer
+        var elemBottom = rect.bottom
+        return elemTop < window.innerHeight && elemBottom >= 0
+    };
     const forbidGoods = ref([
         { title: "火藥類", content: "煙火、爆竹、火藥、彈藥等", imgUrl: img06, },
         { title: "易燃液體", content: "打火機油、油漆、指甲油、美甲凝膠、酒精、稀釋劑、塗料、光漆、香水、精油等。", imgUrl: img02, },
@@ -31,7 +53,7 @@
             imgUrl: img08,
         },
     ]);
-
+        
     
     const activeName = ref('1');
     const handleClick = (tab, event) => {
@@ -62,7 +84,7 @@
                                 <!-- 禁運商品 -->
                                 <el-row :gutter="20" style="border-radius: 8px">
                                     <el-col :span="6" v-for="item in forbidGoods">
-                                        <el-card shadow="hover" style="border: 0px; margin-bottom: 0px">
+                                        <el-card shadow="hover" style="border: 0px; margin-bottom: 0px" class="fade-in">
                                             <div class="circle">
                                                 <img style="width: 100%; height: 100%; object-fit: cover;" :src="item.imgUrl">
                                             </div>

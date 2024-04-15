@@ -7,8 +7,10 @@ import goodsImg04 from '@/assets/images/home/goods-img-04.jpg';
 import newsImg01 from '@/assets/images/news/card-img-01.jpg';
 import newsImg02 from '@/assets/images/news/card-img-02.jpg';
 import newsImg03 from '@/assets/images/news/card-img-03.jpg';
+import { isMobile } from '@/utils/tools.js' 
 const activeName = ref('1');
 const fadeInElements = ref([]);
+const isMobileLayout = ref(false);
 onMounted(() => {
     fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'));
     document.addEventListener('scroll', handleScroll);
@@ -16,12 +18,12 @@ onMounted(() => {
     fetch("https://api.unsplash.com/photos/?client_id=XeMLEo-cG4umamAaRPxahF5CC7nhdSYGtbKlmU1O7Sk")
     .then(async(res) => {
         const data = res.json();
-        console.log(await data)
         return data;
     })
     .then((data) => {
         console.log(data);
     });    
+	isMobileLayout.value = isMobile();
 })
 const handleScroll = (evt) => {
     for (var i = 0; i < fadeInElements.value.length; i++) {
@@ -105,25 +107,52 @@ const questions = reactive([
     <section style="position: relative;">
 		<!-- <img src="@/assets/images/home/bg-01.png" alt="" style="position: absolute; right: 0; top: 0"> -->
 		<div class="wrap">
+			
+			<div class="title">
+				最新消息
+			</div>
 			<el-row :gutter="20" style="align-items: center; border-radius: 8px">
-                <el-col :span="8" v-for="item in news">
-                    <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px" class="fade-in">
-                        <img style="width: 100%" :src="item.imgUrl">
-                        <div style="padding: 12px">
-                            <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
-                            <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
-                                <el-text class="" type="info">{{ item.date }}</el-text>
-                                <a :href="item.fbUrl" style="">
-                                    <el-button type="primary" plain>
-                                        前往貼文
-                                    </el-button>
-                                </a>
-                            </div>
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
+				<el-col :span="8" :xs="24" v-for="item in news">
+					<!-- 桌基板 -->
+					<!-- <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px" class="fade-in">
+						<img style="width: 100%" :src="item.imgUrl">
+						<div style="padding: 12px">
+							<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+							<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+							<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
+								<el-text class="" type="info">{{ item.date }}</el-text>
+								<a :href="item.fbUrl" style="">
+									<el-button type="primary" plain>
+										前往貼文
+									</el-button>
+								</a>
+							</div>
+						</div>
+					</el-card> -->
+					<!-- 手機板 -->
+					<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%" class="fade-in">
+						<el-row>
+							<el-col :span="6">
+								<img style="width: 100%" :src="item.imgUrl">
+							</el-col>
+							<el-col :span="18">
+								<div style="padding: 8px">
+									<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+									<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+									<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center; margin-top: 12px">
+										<el-text class="" type="info">{{ item.date }}</el-text>
+										<a :href="item.fbUrl" style="">
+											<el-button type="primary" plain>
+												前往貼文
+											</el-button>
+										</a>
+									</div>
+								</div>
+							</el-col>
+						</el-row>
+					</el-card>
+				</el-col>
+			</el-row>
 			<div style="text-align: center; margin-top: 32px">
 				<NuxtLink to="/news" class="text-decoration-none">
 					<el-button type="primary" round>查看更多公告<el-icon><ArrowRightBold /></el-icon></el-button>
@@ -133,18 +162,18 @@ const questions = reactive([
     </section>
     <section style="background-color: #f7f7f7">
 		<div>
-			<el-row justify="space-between" :gutter="20" class="wrap">
+			<el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
 				<el-col>
 					<div class="title">
 						服務項目
 					</div>
 					<el-row :gutter="20">
-						<el-col :span="12" style="margin-bottom: 20px" v-for="item in goodsServers">
+						<el-col :span="12" :xs="24" style="margin-bottom: 20px" v-for="item in goodsServers">
 							<el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
-								<div style="min-width: 180px; width: 180px; height: 100%;">
+								<div style="min-width: 180px; width: 180px; height: 100%;" :style="{ maxWidth: isMobileLayout ? '120px': '180px' }">
 									<img :src="item.imgUrl" style="width: 100%; vertical-align: middle; aspect-ratio: 1/1; object-fit: cover;">
 								</div>
-								<div style="display: flex; flex-direction: column; justify-content: center; padding: 24px; width: 100%">
+								<div style="display: flex; flex-direction: column; justify-content: center; padding: 0px 16px; width: 100%">
 									<h2 style="margin: 0px;">{{ item.title }}</h2>
 									<p><el-text class="mx-1" type="info">{{ item.content }}</el-text></p>
 								</div>
@@ -177,7 +206,7 @@ const questions = reactive([
       </el-row>
     </section>
     <section>
-      <el-row justify="space-between" :gutter="20" class="wrap">
+      <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
           <el-col>
 				<div class="title">
 					流程
