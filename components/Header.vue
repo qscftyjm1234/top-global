@@ -3,7 +3,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router';
-
+import 'element-plus/theme-chalk/display.css'
 
 
 const currentRoute = useRoute();
@@ -42,25 +42,23 @@ watch(
         <el-affix :offset="0">
             <div style="width: 100%; display: flex; justify-content: center; border-bottom: 1px solid #dcdfe6; background-color: rgba(255, 255, 255, 0.9);">
                 <el-menu
-                    style="max-width: 1200px; width: 100%; border-bottom: 0px; background-color:transparent"
+                    style="max-width: 1200px; width: 100%; border-bottom: 0px; background-color: transparent"
                     class="el-menu-demo"
                     mode="horizontal"
-                    :ellipsis="false"
+                    :ellipsis="true"
                     :default-active="activeIndex"
                     @select="handleSelect"
                     >
                     <div style="display: flex; align-items: center;">
-                        <NuxtLink to="/">
+                        <NuxtLink to="/" style="display: flex; align-items: center; margin-right: 8px">
                             <el-avatar :size="48">
                                 <img
                                     src="@/assets/images/logo.jpg"
                                 /> 
                             </el-avatar>
                         </NuxtLink>
-                        <div style="display: flex; margin-left: 16px;">
-                            <div style="font-weight: bold;">TGE 邏捷運通有限公司</div>
-                            <span style="font-size: 14px; vertical-align : text-bottom">（Top Global Express）</span>
-                        </div>
+                            <div style="display: flex; align-items: center;">TGE 邏捷運通有限公司</div>
+                            <span class="hidden-sm-and-down">（Top Global Express）</span>
                     </div>
                     <div class="flex-grow"></div>
                     <el-menu-item index="1" class="el-mr-1" >

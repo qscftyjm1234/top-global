@@ -7,15 +7,21 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script lang="ts" setup>
-    import { ref } from 'vue'
+    import { ref, onMounted } from 'vue'
+    import { isMobile } from '@/utils/tools.js' 
+
+    onMounted(() => {
+        isMobileLayout.value = isMobile();
+    });
     const activeName = ref('1');
     const handleClick = (tab, event) => {
         console.log(tab, event)
     }
+const isMobileLayout = ref(false);  
 </script>
 <template>
     <section>
-        <div class="wrap">
+        <div :class="isMobileLayout ? '' : 'wrap'">
             <div class="title">服務介紹及費用</div>
             <el-row justify="space-between" :gutter="20" style="align-items: center">
                 <el-col :span="24">
