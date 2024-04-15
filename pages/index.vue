@@ -112,46 +112,52 @@ const questions = reactive([
 				最新消息
 			</div>
 			<el-row :gutter="20" style="align-items: center; border-radius: 8px">
-				<el-col :span="8" :xs="24" v-for="item in news">
-					<!-- 桌基板 -->
-					<!-- <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px" class="fade-in">
-						<img style="width: 100%" :src="item.imgUrl">
-						<div style="padding: 12px">
-							<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
-							<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-							<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
-								<el-text class="" type="info">{{ item.date }}</el-text>
-								<a :href="item.fbUrl" style="">
-									<el-button type="primary" plain>
-										前往貼文
-									</el-button>
-								</a>
-							</div>
-						</div>
-					</el-card> -->
-					<!-- 手機板 -->
-					<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%" class="fade-in">
-						<el-row>
-							<el-col :span="6">
-								<img style="width: 100%" :src="item.imgUrl">
-							</el-col>
-							<el-col :span="18">
-								<div style="padding: 8px">
-									<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
-									<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-									<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center; margin-top: 12px">
-										<el-text class="" type="info">{{ item.date }}</el-text>
-										<a :href="item.fbUrl" style="">
-											<el-button type="primary" plain>
-												前往貼文
-											</el-button>
-										</a>
-									</div>
+				<template v-if="!isMobileLayout">
+					<el-col :span="8" :xs="24" v-for="item in news">
+						<!-- 桌基板 -->
+						<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px" class="fade-in">
+							<img style="width: 100%" :src="item.imgUrl">
+							<div style="padding: 12px">
+								<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+								<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+								<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
+									<el-text class="" type="info">{{ item.date }}</el-text>
+									<a :href="item.fbUrl" style="">
+										<el-button type="primary" plain>
+											前往貼文
+										</el-button>
+									</a>
 								</div>
-							</el-col>
-						</el-row>
-					</el-card>
-				</el-col>
+							</div>
+						</el-card>
+					</el-col>
+				</template>
+				<template v-else>
+					<el-col v-for="item in news">
+						<!-- 手機板 -->
+						<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%" class="fade-in">
+							<el-row>
+								<el-col :span="6">
+									<img style="width: 100%" :src="item.imgUrl">
+								</el-col>
+								<el-col :span="18">
+									<div style="padding: 8px">
+										<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+										<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+										<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center; margin-top: 12px">
+											<el-text class="" type="info">{{ item.date }}</el-text>
+											<a :href="item.fbUrl" style="">
+												<el-button type="primary" plain>
+													前往貼文
+												</el-button>
+											</a>
+										</div>
+									</div>
+								</el-col>
+							</el-row>
+						</el-card>
+					</el-col>
+				</template>
 			</el-row>
 			<div style="text-align: center; margin-top: 32px">
 				<NuxtLink to="/news" class="text-decoration-none">

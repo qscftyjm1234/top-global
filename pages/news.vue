@@ -2,16 +2,23 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 16:59:12
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-11 12:54:34
+ * @LastEditTime: 2024-04-15 11:30:46
  * @FilePath: \top-glob\pages\news.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script lang="ts" setup>
-    import { ref, reactive } from 'vue';
+    import { ref, reactive, onMounted } from 'vue';
     import cardImg01 from '@/assets/images/news/card-img-01.jpg';
     import cardImg02 from '@/assets/images/news/card-img-02.jpg';
     import cardImg03 from '@/assets/images/news/card-img-03.jpg';
     import cardImg04 from '@/assets/images/news/card-img-04.jpg';
+    import { isMobile } from '@/utils/tools.js'
+    
+
+    onMounted(() => {
+        isMobileLayout.value = isMobile();
+    });
+    const isMobileLayout = ref(false);
     const news = reactive([
         {
             imgUrl: cardImg01,
@@ -45,26 +52,49 @@
 </script>
 <template>
     <section>
-        <div class="wrap">
+        <div :class="isMobileLayout ? '' : 'wrap'">
             <div class="title">最新公告</div>
             <el-row :gutter="20" style="align-items: center; border-radius: 8px">
-                <el-col :span="8" v-for="item in news">
-                    <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px">
-                        <img style="width: 100%" :src="item.imgUrl">
-                        <div style="padding: 12px">
-                            <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
-                            <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
-                                <el-text class="" type="info">{{ item.date }}</el-text>
-                                <a :href="item.fbUrl" style="">
-                                    <el-button type="primary" plain>
-                                        前往貼文
-                                    </el-button>
-                                </a>
+                <template v-if="!isMobileLayout">
+                    <el-col :span="8" v-for="item in news">
+                        <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px' }" style="border: 0px; margin-bottom: 20px">
+                            <img style="width: 100%" :src="item.imgUrl">
+                            <div style="padding: 12px">
+                                <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+                                <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
+                                    <el-text class="" type="info">{{ item.date }}</el-text>
+                                    <a :href="item.fbUrl" style="">
+                                        <el-button type="primary" plain>
+                                            前往貼文
+                                        </el-button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </el-card>
-                </el-col>
+                        </el-card>
+                    </el-col>
+                </template>
+                <template v-else>
+                    <el-col :span="24" v-for="item in news">
+                        <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex' }" style="border: 0px; margin-bottom: 20px">
+                            <el-col :span="8"><img style="width: 100%" :src="item.imgUrl"></el-col>
+                            <el-col :span="16">
+                                <div>
+                                    <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+                                    <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
+                                        <el-text class="" type="info">{{ item.date }}</el-text>
+                                        <a :href="item.fbUrl" style="">
+                                            <el-button type="primary" plain>
+                                                前往貼文
+                                            </el-button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </el-col>
+                        </el-card>
+                    </el-col>
+                </template>
             </el-row>
         </div>
     </section>

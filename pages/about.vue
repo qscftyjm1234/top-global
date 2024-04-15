@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-11 18:03:30
+ * @LastEditTime: 2024-04-15 10:33:18
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -20,13 +20,13 @@ const isMobileLayout = ref(false);
 const fadeInElements = ref([]);
 const handleScroll = (evt) => {
     for (var i = 0; i < fadeInElements.value.length; i++) {
-    var elem = fadeInElements.value[i]
-    if (isElemVisible(elem)) {
-        elem.style.opacity = '1'
-        elem.style.transform = 'scale(1)'
-        fadeInElements.value.splice(i, 1) // 只让它运行一次
-    }
-    }
+        var elem = fadeInElements.value[i]
+        if (isElemVisible(elem)) {
+            elem.style.opacity = '1'
+            elem.style.transform = 'scale(1)'
+            fadeInElements.value.splice(i, 1) // 只让它运行一次
+        };
+    };
 };
 const isElemVisible = (el) => {
   var rect = el.getBoundingClientRect()

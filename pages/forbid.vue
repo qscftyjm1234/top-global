@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-11 11:57:13
+ * @LastEditTime: 2024-04-15 10:28:00
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,11 +16,15 @@
     import img07 from '@/assets/images/forbid/forbid-img-07.jpg';
     import img08 from '@/assets/images/forbid/forbid-img-08.jpg';
     import img09 from '@/assets/images/forbid/forbid-img-09.jpg';
+
+    import { isMobile } from '@/utils/tools.js' 
     onMounted(() => {
         fadeInElements.value = Array.from(document.getElementsByClassName('fade-in'));
         document.addEventListener('scroll', handleScroll);
         handleScroll();
-    })
+	    isMobileLayout.value = isMobile();
+    });
+    const isMobileLayout = ref(false);
     const fadeInElements = ref([]);
     const handleScroll = (evt) => {
         for (var i = 0; i < fadeInElements.value.length; i++) {
@@ -62,7 +66,7 @@
 </script>
 <template>
     <section>
-        <div class="wrap">
+        <div :class="isMobileLayout ? '' : 'wrap'">
             <div class="title">禁運物品及限制</div>
             <el-row justify="space-between" :gutter="20" style="align-items: center">
                 <el-col :span="24">
@@ -83,17 +87,35 @@
                                 </div>
                                 <!-- 禁運商品 -->
                                 <el-row :gutter="20" style="border-radius: 8px">
-                                    <el-col :span="6" v-for="item in forbidGoods">
-                                        <el-card shadow="hover" style="border: 0px; margin-bottom: 0px" class="fade-in">
-                                            <div class="circle">
-                                                <img style="width: 100%; height: 100%; object-fit: cover;" :src="item.imgUrl">
-                                            </div>
-                                            <div style="padding: 12px; text-align: center;">
-                                                <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
-                                                <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-                                            </div>
-                                        </el-card>
-                                    </el-col>
+                                    <template v-if="!isMobileLayout">
+                                        <el-col :span="6" v-for="item in forbidGoods">
+                                            <el-card shadow="hover" style="border: 0px; margin-bottom: 0px" class="fade-in">
+                                                <div class="circle">
+                                                    <img style="width: 100%; height: 100%; object-fit: cover;" :src="item.imgUrl">
+                                                </div>
+                                                <div style="padding: 12px; text-align: center;">
+                                                    <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+                                                    <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+                                                </div>
+                                            </el-card>
+                                        </el-col>
+                                    </template>
+                                    <template v-else>
+                                        <!-- class="fade-in" -->
+                                        <el-row v-for="item in forbidGoods" style="align-items: center; border-bottom: 1px solid #dbdbdb; padding: 20px 0px">
+                                            <el-col :span="6">
+                                                <div class="circle">
+                                                    <img style="width: 100%; height: 100%; object-fit: cover;" :src="item.imgUrl">
+                                                </div>
+                                            </el-col>
+                                            <el-col :span="18">
+                                                <div style="padding: 12px;">
+                                                    <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
+                                                    <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
+                                    </template>
                                 </el-row>
                             </section>
                         </el-tab-pane>

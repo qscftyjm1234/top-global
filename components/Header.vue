@@ -1,10 +1,22 @@
+<!--
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2024-04-02 15:13:17
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-04-15 18:01:15
+ * @FilePath: \top-glob\components\Header.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 
   
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router';
 import 'element-plus/theme-chalk/display.css'
-
+import { isMobile } from '@/utils/tools.js' 
+onMounted(() => {
+    isMobileLayout.value = isMobile();
+});
+const isMobileLayout = ref(false);
 
 const currentRoute = useRoute();
 const activeIndex = ref('1');
@@ -40,12 +52,15 @@ watch(
 </script>
     <template>
         <el-affix :offset="0">
-            <div style="width: 100%; display: flex; justify-content: center; border-bottom: 1px solid #dcdfe6; background-color: rgba(255, 255, 255, 0.9);">
+            <div 
+                style="width: 100%; display: flex; justify-content: center; border-bottom: 1px solid #dcdfe6; background-color: rgba(255, 255, 255, 0.9);"
+                class="header"
+            >
                 <el-menu
-                    style="max-width: 1200px; width: 100%; border-bottom: 0px; background-color: transparent"
-                    class="el-menu-demo"
+                    style="width: 100%; border-bottom: 0px; background-color: transparent"
+                    class="el-menu-demo menu"
                     mode="horizontal"
-                    :ellipsis="true"
+                    :ellipsis="isMobileLayout"
                     :default-active="activeIndex"
                     @select="handleSelect"
                     >
@@ -57,10 +72,10 @@ watch(
                                 /> 
                             </el-avatar>
                         </NuxtLink>
-                            <div style="display: flex; align-items: center;">TGE 邏捷運通有限公司</div>
-                            <span class="hidden-sm-and-down">（Top Global Express）</span>
+                        <div style="display: flex; align-items: center;">TGE 邏捷運通有限公司</div>
+                        <span class="hidden-sm-and-down" style="display: flex; align-items: center; font-size: 14px;">（Top Global Express）</span>
                     </div>
-                    <div class="flex-grow"></div>
+                    <div class="flex-grow" style="width: 100%"></div>
                     <el-menu-item index="1" class="el-mr-1" >
                         <NuxtLink to="/about" class="text-decoration-none">
                             <b>關於我們</b>
@@ -88,11 +103,17 @@ watch(
             </div>
         </el-affix>
     </template>
-<style scoped>
+<style>
     .flex-grow {
         flex-grow: 1;
     }
     .text-decoration-none {
         text-decoration: none;
+    }
+    .header .menu .el-sub-menu {
+        margin-left: 0 auto !important;
+    }
+    .header .menu .el-sub-menu .el-sub-menu__title {
+        padding: 0px 20px !important;
     }
 </style>
