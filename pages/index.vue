@@ -142,7 +142,7 @@ const questions = reactive([
 						<el-col :span="12" style="margin-bottom: 20px" v-for="item in goodsServers">
 							<el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
 								<div style="min-width: 180px; width: 180px; height: 100%;">
-									<img :src="item.imgUrl" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" alt="...">
+									<img :src="item.imgUrl" style="width: 100%; vertical-align: middle; aspect-ratio: 1/1; object-fit: cover;">
 								</div>
 								<div style="display: flex; flex-direction: column; justify-content: center; padding: 24px; width: 100%">
 									<h2 style="margin: 0px;">{{ item.title }}</h2>
