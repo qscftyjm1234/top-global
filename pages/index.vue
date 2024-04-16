@@ -262,7 +262,7 @@ const questions = reactive([
 
 <style scoped>
 .wrap {
-  width: 1080px;
+  width: 1080px !important;
   margin: 0px auto imo !important;
 }
 .title {
