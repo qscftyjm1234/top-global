@@ -135,16 +135,16 @@ const questions = reactive([
 				<template v-else>
 					<el-col v-for="item in news">
 						<!-- 手機板 -->
-						<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%">
+						<el-card shadow="hover" :body-style="{ width: '100%', padding: '8px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%">
 							<el-row>
-								<el-col :span="8">
+								<el-col :span="8" style="display: flex; align-items: center">
 									<img style="width: 100%" :src="item.imgUrl">
 								</el-col>
 								<el-col :span="16">
 									<div style="padding: 12px">
 										<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
 										<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-										<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center; margin-top: 8px">
+										<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center;">
 											<el-text class="" type="info">{{ item.date }}</el-text>
 											<a :href="item.fbUrl" style="">
 												<el-button type="primary" plain>
@@ -213,8 +213,8 @@ const questions = reactive([
 			</div>
 		</div>
     </section>
-    <section style="display: flex; justify-content: center; width: 100%">
-      <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
+    <section style="display: flex; justify-content: center">
+      <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'" style="width: 100%">
           <el-col>
 				<div class="title">
 					常見問題
@@ -229,8 +229,8 @@ const questions = reactive([
           </el-col>
       </el-row>
     </section>
-    <section style="display: flex; justify-content: center; width: 100%">
-      <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
+    <section style="display: flex; justify-content: center">
+      <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'" style="width: 100%">
           <el-col>
 				<div class="title">
 					流程
