@@ -104,7 +104,7 @@ const questions = reactive([
             </el-carousel-item>
         </el-carousel>
     </div>
-    <section style="position: relative;">
+    <section style="position: relative; display: flex; justify-content: center">
 		<!-- <img src="@/assets/images/home/bg-01.png" alt="" style="position: absolute; right: 0; top: 0"> -->
 		<div :class="isMobileLayout ? '' : 'wrap'">
 			
@@ -166,7 +166,7 @@ const questions = reactive([
 			</div>
 		</div>
     </section>
-    <section style="background-color: #f7f7f7">
+    <section style="background-color: #f7f7f7; display: flex; justify-content: center">
 		<div :class="isMobileLayout ? '' : 'wrap'">
 			<el-row justify="space-between" :gutter="20" >
 				<el-col>
@@ -213,7 +213,7 @@ const questions = reactive([
 			</div>
 		</div>
     </section>
-    <section>
+    <section style="display: flex; justify-content: center">
       <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
           <el-col>
 				<div class="title">
@@ -229,7 +229,7 @@ const questions = reactive([
           </el-col>
       </el-row>
     </section>
-    <section>
+    <section style="display: flex; justify-content: center">
       <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
           <el-col>
 				<div class="title">
