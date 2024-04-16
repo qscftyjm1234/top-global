@@ -213,13 +213,13 @@ const questions = reactive([
 			</div>
 		</div>
     </section>
-    <section style="display: flex; justify-content: center">
+    <section style="display: flex; justify-content: center; width: 100%">
       <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
           <el-col>
 				<div class="title">
 					常見問題
 				</div>
-				<div class="demo-collapse">
+				<div class="demo-collapse" style="width: 100%">
 					<el-collapse v-model="activeName" accordion>
 						<el-collapse-item :title="item.title" :name="item.name" v-for="item in questions">
 							<div style="font-size: 16px;" v-html="item.content"></div>
@@ -229,7 +229,7 @@ const questions = reactive([
           </el-col>
       </el-row>
     </section>
-    <section style="display: flex; justify-content: center">
+    <section style="display: flex; justify-content: center; width: 100%">
       <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
           <el-col>
 				<div class="title">
