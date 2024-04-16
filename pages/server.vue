@@ -13,7 +13,7 @@
     onMounted(() => {
         isMobileLayout.value = isMobile();
     });
-    const activeName = ref('8');
+    const activeName = ref('6');
     const handleClick = (tab, event) => {
         console.log(tab, event)
     }
