@@ -153,7 +153,7 @@ const tagers = [
                 與我們連繫。謝謝！
             </p>
             <a href="https://lin.ee/lgoVP3a" style="cursor: pointer">
-                <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="48" border="0">
+                <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="48" border="0" target="_blank">
             </a>
         </div>
     </section>

@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 15:56:22
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-12 14:44:41
+ * @LastEditTime: 2024-04-16 15:45:18
  * @FilePath: \top-glob\components\Footer.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -61,7 +61,7 @@ const bounceLogo = () => {
                         <li>
                             <div style="display: flex; align-items: center">
                                 <div style="width: 32px; margin-right: 12px">
-                                    <a href="https://www.instagram.com/tge_global_express/">
+                                    <a href="https://lin.ee/lgoVP3a" target="_blank">
                                         <img style="width: 100%" src="@/assets/images/footer/line.webp" />  
                                     </a>
                                 </div>
@@ -127,7 +127,7 @@ const bounceLogo = () => {
         </div>
         <el-affix :offset="0" style="position: fixed; bottom: 20px; right: 20px;">
             <div style="width: 48px; margin-right: 12px" class="logo">
-                <a href="https://www.instagram.com/tge_global_express/">
+                <a href="https://lin.ee/lgoVP3a" target="_blank">
                     <img style="width: 100%" src="@/assets/images/footer/line.webp" /> 
                 </a>
             </div>
