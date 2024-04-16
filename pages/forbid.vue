@@ -134,9 +134,6 @@
     width: 1080px;
     margin: 0px auto;
 }
-section {
-    padding: 36px 0px;
-}
 .title {
     display: flex;
     align-items: center;

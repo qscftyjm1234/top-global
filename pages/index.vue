@@ -106,7 +106,7 @@ const questions = reactive([
     </div>
     <section style="position: relative;">
 		<!-- <img src="@/assets/images/home/bg-01.png" alt="" style="position: absolute; right: 0; top: 0"> -->
-		<div class="wrap">
+		<div :class="isMobileLayout ? '' : 'wrap'">
 			
 			<div class="title">
 				最新消息
@@ -135,16 +135,16 @@ const questions = reactive([
 				<template v-else>
 					<el-col v-for="item in news">
 						<!-- 手機板 -->
-						<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%" class="fade-in">
+						<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%">
 							<el-row>
-								<el-col :span="6">
+								<el-col :span="8">
 									<img style="width: 100%" :src="item.imgUrl">
 								</el-col>
-								<el-col :span="18">
-									<div style="padding: 8px">
+								<el-col :span="16">
+									<div style="padding: 12px">
 										<h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
 										<el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
-										<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center; margin-top: 12px">
+										<div style="display: flex;  width: 100%; justify-content: space-between; align-items: center; margin-top: 8px">
 											<el-text class="" type="info">{{ item.date }}</el-text>
 											<a :href="item.fbUrl" style="">
 												<el-button type="primary" plain>
@@ -167,24 +167,42 @@ const questions = reactive([
 		</div>
     </section>
     <section style="background-color: #f7f7f7">
-		<div>
-			<el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
+		<div :class="isMobileLayout ? '' : 'wrap'">
+			<el-row justify="space-between" :gutter="20" >
 				<el-col>
 					<div class="title">
 						服務項目
 					</div>
 					<el-row :gutter="20">
-						<el-col :span="12" :xs="24" style="margin-bottom: 20px" v-for="item in goodsServers">
-							<el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
-								<div style="min-width: 180px; width: 180px; height: 100%;" :style="{ maxWidth: isMobileLayout ? '120px': '180px' }">
-									<img :src="item.imgUrl" style="width: 100%; vertical-align: middle; aspect-ratio: 1/1; object-fit: cover;">
-								</div>
-								<div style="display: flex; flex-direction: column; justify-content: center; padding: 0px 16px; width: 100%">
-									<h2 style="margin: 0px;">{{ item.title }}</h2>
-									<p><el-text class="mx-1" type="info">{{ item.content }}</el-text></p>
-								</div>
-							</el-card>
-						</el-col>
+						<template v-if="!isMobileLayout">
+							<el-col :span="12" :xs="24" style="margin-bottom: 20px" v-for="item in goodsServers">
+								<el-card style="border: 0px; height: 100%;" :body-style="{ width: '100%', display: 'flex', padding: '0px' }" class="fade-in">
+									<div style="min-width: 180px; width: 180px; height: 100%;" :style="{ maxWidth: isMobileLayout ? '120px': '180px' }">
+										<img :src="item.imgUrl" style="width: 100%; vertical-align: middle; aspect-ratio: 1/1; object-fit: cover;">
+									</div>
+									<div style="display: flex; flex-direction: column; justify-content: center; padding: 0px 16px; width: 100%">
+										<h2 style="margin: 0px;">{{ item.title }}</h2>
+										<p><el-text class="mx-1" type="info">{{ item.content }}</el-text></p>
+									</div>
+								</el-card>
+							</el-col>
+						</template>
+						<template v-else>
+							<el-col v-for="item in goodsServers">
+								<!-- 手機板 -->
+								<el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex', flexWrap: 'nowrap' }" style="border: 0px; margin-bottom: 20px; width: 100%">
+									<el-row style="width: 100%">
+										<el-col :span="8">
+											<img :src="item.imgUrl" style="width: 100%; vertical-align: middle; aspect-ratio: 1/1; object-fit: cover;">
+										</el-col>
+										<el-col :span="16" style="padding: 16px">
+											<h3 style="margin: 0px;">{{ item.title }}</h3>
+											<el-text class="mx-1" type="info">{{ item.content }}</el-text>
+										</el-col>
+									</el-row>
+								</el-card>
+							</el-col>
+						</template>
 					</el-row>
 				</el-col>
 			</el-row>
@@ -196,7 +214,7 @@ const questions = reactive([
 		</div>
     </section>
     <section>
-      <el-row justify="space-between" :gutter="20" class="wrap">
+      <el-row justify="space-between" :gutter="20" :class="isMobileLayout ? '' : 'wrap'">
           <el-col>
 				<div class="title">
 					常見問題
@@ -246,11 +264,6 @@ const questions = reactive([
 .wrap {
   width: 1080px;
   margin: 0px auto imo !important;
-}
-section {
-  padding: 36px 0px;
-  display: flex;
-  justify-content: center;
 }
 .title {
     display: flex;
@@ -334,21 +347,6 @@ section {
 .step-card .step-content p{
     margin: 0px;
 }
-
-.fade-in {
-    opacity: 0;
-    transition: 1.2s all ease-out;
-    transform: scale(0.8);
-    /* background-color: #2ecc71;
-    height: 500px;
-    margin-bottom: 50px;
-    opacity: 0;
-    transition: 0.3s all ease-out;
-    transform: scale(0.8);
-    box-sizing: border-box;
-    padding: 20px;
-    display: inline-block; */
-  }
   .full-width{
     width: 100%;
   }

@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-15 10:33:18
+ * @LastEditTime: 2024-04-16 11:50:52
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -132,15 +132,16 @@ const tagers = [
                 <strong>科學管理 現代化實踐</strong>
             </h2>
             <p>
-                內文內文內文內文內文內文內文內文內文內文內文內文內文內文內
-                文內文內文內文內文內文內文內文內文內文
+                科學管理，業務精準，提效降耗
             </p>
         </div>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 64px 0px" class="fade-in">
-        <h2 style="margin-bottom: 20px">邏捷通運為您  省時、省力，打造CP質最高的服務</h2>
-        <div style="background-color: firebrick; width: 96px; height: 5px; margin-bottom: 20px"></div>
-    </div>
+    <section>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 64px 0px" class="fade-in">
+            <h2 style="margin-bottom: 20px; text-align: center;">邏捷通運為您  省時、省力，打造CP質最高的服務</h2>
+            <div style="background-color: firebrick; width: 96px; height: 5px; margin-bottom: 20px"></div>
+        </div>
+    </section>
     <section>
         <div :class="isMobileLayout ? '' : 'wrap'">
             <hr style= "border:1px dashed #b8b8b8; margin: 24px 0px" />
@@ -162,9 +163,6 @@ const tagers = [
 .wrap {
     width: 1080px;
     margin: 0px auto;
-}
-section {
-    padding: 36px 0px;
 }
 .title {
     display: flex;
