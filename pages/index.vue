@@ -362,4 +362,16 @@ const questions = reactive([
   .half-width:nth-of-type(2n) {
     margin-left: 2.5%;
   }
+
+.text-limit {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 设置最大行数 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.two-lines {
+  height: 40px; /* 假设每行高度为20px，总高度为两行 */
+  line-height: 20px; /* 设置行高为每行高度的一半，使得文本垂直居中 */
+  overflow: hidden; /* 如果文本超出容器高度，隐藏溢出部分 */
+}
 </style>
