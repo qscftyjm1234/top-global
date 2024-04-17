@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 16:59:12
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-15 11:30:46
+ * @LastEditTime: 2024-04-17 10:43:31
  * @FilePath: \top-glob\pages\news.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -53,7 +53,7 @@
 <template>
     <section>
         <div :class="isMobileLayout ? '' : 'wrap'">
-            <div class="title">最新公告</div>
+            <div class="title">最新消息</div>
             <el-row :gutter="20" style="align-items: center; border-radius: 8px">
                 <template v-if="!isMobileLayout">
                     <el-col :span="8" v-for="item in news">
@@ -77,9 +77,11 @@
                 <template v-else>
                     <el-col :span="24" v-for="item in news">
                         <el-card shadow="hover" :body-style="{ width: '100%', padding: '0px', display: 'flex' }" style="border: 0px; margin-bottom: 20px">
-                            <el-col :span="8"><img style="width: 100%" :src="item.imgUrl"></el-col>
+                            <el-col :span="8" style="display: flex; align-items: center">
+                                <img style="width: 100%" :src="item.imgUrl">
+                            </el-col>
                             <el-col :span="16">
-                                <div>
+                                <div style="padding: 12px">
                                     <h3 style="margin: 0px 0px 8px 0px">{{ item.title }}</h3>
                                     <el-text class="mx-1 text-limit two-lines" type="info">{{ item.content }}</el-text>
                                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px">
