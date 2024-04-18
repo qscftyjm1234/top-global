@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-16 16:49:22
+ * @LastEditTime: 2024-04-18 10:38:39
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -53,7 +53,7 @@ const isMobileLayout = ref(false);
                         <el-tab-pane label="海運" name="7">
                             <section>
                                 <!-- 這個圖片有誤要改這個圖片有誤要改這個圖片有誤要改這個圖片有誤要改 -->
-                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" /> 
+                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-04.jpg" /> 
                                 <div class="content-title">一、體積(材積)計算方式</div>
                                 <p>
                                     以<mark>公分(cm)</mark>為測量單位<br />
