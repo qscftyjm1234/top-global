@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 15:56:22
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-16 15:45:18
+ * @LastEditTime: 2024-04-19 09:12:07
  * @FilePath: \top-glob\components\Footer.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -28,7 +28,6 @@ const bounceLogo = () => {
 </script>
 <template>
     <div>
-        <div></div>
         <div 
             style="display: flex; justify-content: center; color: white; background: linear-gradient(to bottom, #333333 0%, #595959 100%); padding: 36px"
             :style="{ flexDirection: isMobileLayout ? 'column': 'row', padding: isMobileLayout ? '8px': '36px' }"

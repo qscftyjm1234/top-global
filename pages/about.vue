@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-16 11:50:52
+ * @LastEditTime: 2024-04-19 09:25:04
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -94,13 +94,13 @@ const tagers = [
                     </el-carousel>
                 </el-col>
             </el-row>
-            <hr style= "border:1px dashed #b8b8b8; margin: 24px 0px" />
+            <hr style= "border:1px dashed #b8b8b8; margin: 36px 0px" />
             <div class="title">五大目標</div>
-            <el-row justify="center" :gutter="24" style="margin: 64px 0px">
+            <el-row justify="center" :gutter="24" style="margin: 64px 0px"  class="fade-in">
                 <el-col :span="4" :xs="8" v-for="(item, index) in tagers" :key="index">
                     <div style="text-align: center" class="hoverItem">
-                        <div class="circle fade-in">
-                            <h2>{{ item.title }}</h2>
+                        <div class="circle">
+                            <h2 :style="{ fontSize: isMobileLayout ? '20px' : '40px'}">{{ item.title }}</h2>
                             <!-- <img src="@/assets/images/about/about-img-05.jpg" style="width: 100%; height: 100%; object-fit: cover" alt=""> -->
                         </div>
                     </div>
@@ -117,7 +117,7 @@ const tagers = [
             </div>
             <div style="display: flex; width: 100%; margin: 48px 0px; border-radius: 50px; overflow: hidden" class="fade-in">
                 <div style="text-align: center; background-color: ghostwhite; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px 36px">
-                    <h1 style="margin-bottom: 0px; color: firebrick; font-size: 20px">"貫徹 親民服務"</h1>
+                    <h1 style="margin-bottom: 0px; color: firebrick;" :style="{ fontSize: isMobileLayout ? '20px' : '32px'}">"貫徹 親民服務"</h1>
                     <p>「我們始終貫徹親民服務的理念，以親切專業的態度，為每位客戶提供貼心周到的服務，讓您感受到我們的用心與關懷。」</p>
                 </div>
                 <div style="width: 360px; aspect-ratio: 1/1; overflow: hidden">
@@ -128,7 +128,7 @@ const tagers = [
     </section>
     <div class="step-card">
         <div class="step-content">
-            <h2 style="margin-top: 0px">
+            <h2 style="margin-top: 0px" :style="{ fontSize: isMobileLayout ? '20px' : '32px'}">
                 <strong>科學管理 現代化實踐</strong>
             </h2>
             <p>
@@ -196,6 +196,11 @@ const tagers = [
     color: white;
     background-color: #414141;
     margin: 0px;
+    position: relative;
+
+    
+    transition: 0.5s all ease-out;
+    transform: scale(1);
 }
 .hoverItem {
     cursor: pointer;
@@ -214,7 +219,6 @@ const tagers = [
 	background-image: url("@/assets/images/about/123.jpg");
 	background-size: cover; /* 图片铺满 */
 	background-position: center; /* 图片居中 */
-	opacity: 1; /* 透明度 */
 	z-index: -1; /* 位于底部 */
 	opacity: 0.4;
 }
