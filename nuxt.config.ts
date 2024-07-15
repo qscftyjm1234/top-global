@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/', // 配置應用程序的基本 API 請求 URL
     base: '/',
-    buildAssetsDir: '/static/',
+    buildAssetsDir: '/top-global/static/',
   },
   devtools: { enabled: true },
   modules: [
