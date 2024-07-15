@@ -1,1 +1,0 @@
-import{_ as n,c as r,d as _,b as o,o as c,ar as a}from"./DEhSbHxF.js";import{_ as m}from"./CWizkl_9.js";import"./Czc_RB7e.js";import"./DCk-467L.js";import"./CGcSB4kg.js";import"./CelxogyL.js";import"./CZXrtRLt.js";const s={};function p(i,u){const t=a,e=m;return c(),r("div",null,[_(" 進入點2 "),o(t),o(e)])}const V=n(s,[["render",p]]);export{V as default};
