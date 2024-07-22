@@ -2,11 +2,12 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 16:59:12
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-07-15 18:06:05
+ * @LastEditTime: 2024-07-22 14:23:40
  * @FilePath: \top-glob\pages\news.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script lang="ts" setup>
+    import axios from 'axios';
     import { isMobile } from '@/utils/tools.js';
     onMounted(() => {
         getOrder("8000000028");
@@ -125,6 +126,23 @@
         getOrder(inputVal.value);
     };
     const getOrder = async(number: string) => {
+
+        try {
+            // 使用代理來發送 API 請求
+            const response = await axios.post('/api/v1/user/member/waybill/searchDetailV2', {
+                number: number
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    'EnterpriseNo': "TGE"
+                },
+            });
+            console.log(response.data)
+        } catch (error) {
+            console.error('獲取數據出錯:', error);
+        }
+        return;
         const url = "http://jingya.api.8bami.com/v1/user/member/waybill/searchDetailV2";
 
         fetch(url, {
