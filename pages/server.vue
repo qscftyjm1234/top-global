@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-18 10:38:39
+ * @LastEditTime: 2024-07-22 12:25:31
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,7 +16,10 @@
     const activeName = ref('6');
     const handleClick = (tab, event) => {
         console.log(tab, event)
-    }
+    };
+    const nations1 = ["越南", "印尼", "泰國", "大陸", "日本"];
+    const nations2 = ["越南", "印尼", "泰國", "菲律賓", "美國(重貨21KG以上)", "大陸", "馬來西亞", "新加坡"];
+    const nations3 = ["大陸", "日本", "印尼", "越南"];
 const isMobileLayout = ref(false);  
 </script>
 <template>
@@ -39,6 +42,7 @@ const isMobileLayout = ref(false);
                                     以<mark>公分(cm)</mark>為測量單位<br />
                                     到貨後實際量測包裹外箱的【 長ｘ寬ｘ高 (cm)／6000 = 材積重量 】<br />
                                     實際量測若遇小數點採無條件進位(未滿1公斤以1公斤計算)<br />
+                                    ※快遞單件任兩邊不超過75CM。單件限重30KG。<br />
                                 </p>
                                 <hr />
                                 <div class="content-title">二、重量計算方式</div>
@@ -121,34 +125,10 @@ const isMobileLayout = ref(false);
                                     effect="dark"
                                     class="tag"
                                     size="large"
+                                    v-for="nation in nations1"
                                 >
-                                    越南
+                                    {{ nation }}
                                 </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    印尼
-                                </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    泰國
-                                </el-tag>
-                                <!-- <el-check-tag type="primary" checked="true" class="tag">
-                                    越南
-                                </el-check-tag>
-                                <el-check-tag type="primary" checked="true" class="tag">
-                                    印尼
-                                </el-check-tag>
-                                <el-check-tag type="primary" checked="true" class="tag">
-                                    泰國
-                                </el-check-tag> -->
                              </section>
                         </el-tab-pane>
                         <el-tab-pane label="出口" name="2">
@@ -159,40 +139,9 @@ const isMobileLayout = ref(false);
                                     effect="dark"
                                     class="tag"
                                     size="large"
+                                    v-for="nation in nations2"
                                 >
-                                    越南
-                                </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    印尼
-                                </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    泰國
-                                </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    菲律賓
-                                </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    美國(重貨21KG以上)
+                                    {{ nation }}
                                 </el-tag>
                              </section>
                         </el-tab-pane>
@@ -204,21 +153,11 @@ const isMobileLayout = ref(false);
                                     effect="dark"
                                     class="tag"
                                     size="large"
+                                    v-for="nation in nations3"
                                 >
-                                    大陸
-                                </el-tag>
-                                <el-tag
-                                    type="primary"
-                                    effect="dark"
-                                    class="tag"
-                                    size="large"
-                                >
-                                    日本
+                                    {{ nation }}
                                 </el-tag>
                              </section>
-                        </el-tab-pane>
-                        <el-tab-pane label="費用" name="4">
-                            待刪除或有資料
                         </el-tab-pane>
                     </el-tabs>
                 </el-col>

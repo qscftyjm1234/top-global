@@ -63,6 +63,23 @@ const steps = reactive([
 	{ title: "貨到台灣會通知付款(運費+稅金)" },
 	{ title: "確認款項後就可以發貨質送到家" },
 ]);
+
+// 進口流程
+const importSteps = reactive([
+	{ title: "先確認是否可以進口" },
+	{ title: "將貨寄至TGE倉庫" },
+	{ title: "告知我們您的實名認證+收件資訊(姓名、電話、地址、身分證)" },
+	{ title: "貨到台灣會通知付款(運費+稅金)" },
+	{ title: "確認款項後就可以發貨送到門" },
+]);
+// 出口流程
+const exitSteps = reactive([
+	{ title: "先確認是否可以出口" },
+	{ title: "將貨寄至TGE倉庫(或是請我們收件)" },
+	{ title: "請我們收件(需提供 姓名，地址，電話)" },
+	{ title: "告知我們收件端( 姓名，地址，電話)" },
+	{ title: "確認款項後就可以發貨送到門" },
+]);
 // 最新消息
 const news = reactive([
 	{
@@ -237,7 +254,7 @@ const questions = reactive([
 				</div>
 				<el-tabs v-model="activeTabName" class="demo-tabs" @tab-click="handleClick">
 					<el-tab-pane label="集運流程" name="first">
-						<div class="step-card fade-in" style="margin: 16px 0px" v-for="(item, index) in steps">
+						<div class="step-card" style="margin: 16px 0px" v-for="(item, index) in steps">
 							<div class="step-num">
 								{{ index + 1 }}.
 							</div>
@@ -249,10 +266,28 @@ const questions = reactive([
 						</div>
 					</el-tab-pane>
 					<el-tab-pane label="進口流程" name="second">
-						等待提供，或移除
+						<div class="step-card" style="margin: 16px 0px" v-for="(item, index) in importSteps">
+							<div class="step-num">
+								{{ index + 1 }}.
+							</div>
+							<div class="step-content">
+								<h2 style="margin: 0px">
+									<strong>{{ item.title }}</strong>
+								</h2>
+							</div>
+						</div>
 					</el-tab-pane>
 					<el-tab-pane label="出口流程" name="third">
-						等待提供，或移除
+						<div class="step-card" style="margin: 16px 0px" v-for="(item, index) in exitSteps">
+							<div class="step-num">
+								{{ index + 1 }}.
+							</div>
+							<div class="step-content">
+								<h2 style="margin: 0px">
+									<strong>{{ item.title }}</strong>
+								</h2>
+							</div>
+						</div>
 					</el-tab-pane>
 				</el-tabs>
           </el-col>

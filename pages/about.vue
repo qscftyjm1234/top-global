@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-04-19 09:25:04
+ * @LastEditTime: 2024-07-22 12:30:35
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -71,13 +71,7 @@ const tagers = [
                         </div>
                     </div>
                     <p style="line-height: 2rem; margin-top: 24px">
-                        <b>邏捷通運(TGE)</b>是一間台灣在地公司，成立於西元
-                        2023年，從事越南、印尼與日本的物流]輸企業，提
-                        供客戶最專業可靠的服務。 們的員工在業界歷都
-                        已超過10年，擁k專業背景才能在物流界快速崛起。
-                        除了秉持傳統物流的….更加融入了…是間創新的物流
-                        公司。 們擁k…優勢，為每一個客戶量身打造，在
-                        TGE，您就是 們的VIP。
+                        邏捷通運(TGE)是一間台灣在地公司，成立於西元2023年，從事越南、印尼與日本的物流運輸企業，提供客戶最專業可靠的服務。我們的員工在業界資歷都已超過10年，擁有專業背景才能在物流界快速崛起。除了秉持傳統物流的堅毅精神，更加融入新世代的巧思與創意，是間創新的物流公司。我們擁有多種語言服務、專業客服、門到門一條龍服務，以及新穎物流系統等等優勢，為每一個客戶量身打造。在TGE，您就是我們的VIP。
                     </p>
                 </el-col>
                 <el-col :span="13" :xs="24">
@@ -96,7 +90,7 @@ const tagers = [
             </el-row>
             <hr style= "border:1px dashed #b8b8b8; margin: 36px 0px" />
             <div class="title">五大目標</div>
-            <el-row justify="center" :gutter="24" style="margin: 64px 0px"  class="fade-in">
+            <el-row justify="center" :gutter="24" style="margin: 64px 0px">
                 <el-col :span="4" :xs="8" v-for="(item, index) in tagers" :key="index">
                     <div style="text-align: center" class="hoverItem">
                         <div class="circle">
@@ -138,7 +132,7 @@ const tagers = [
     </div>
     <section>
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 64px 0px" class="fade-in">
-            <h2 style="margin-bottom: 20px; text-align: center;">邏捷通運為您  省時、省力，打造CP質最高的服務</h2>
+            <h2 style="margin-bottom: 20px; text-align: center;">邏捷運通為您  省時、省力，打造CP質最高的服務</h2>
             <div style="background-color: firebrick; width: 96px; height: 5px; margin-bottom: 20px"></div>
         </div>
     </section>
@@ -147,10 +141,20 @@ const tagers = [
             <hr style= "border:1px dashed #b8b8b8; margin: 24px 0px" />
             <h2>【聯絡我們】</h2>
             <p style="line-height: 2rem">
-                歡迎您的觀看，有任何相關問題，歡迎來信請Email至 <a href="tyn@topglobal.com.tw" target="_blank">tyn@topglobal.com.tw</a> <br />
-                或撥打04-23802660<br />
-                或聯絡我們官方LINE @893ZLOWM<br />
-                與我們連繫。謝謝！
+                有任何問題，歡迎與我們聯繫，有專業客服一對一為您服務！
+                <div  style="display: flex;">
+                    <div>連絡電話：</div>
+                    <div>
+                        <div>03-3230090 (桃園收貨站) </div>
+                        <div>04-23802660 (台中收貨站) </div>
+                    </div>
+                </div>
+                <p>
+                    Email：
+                    <a href= "mailto: tyn@topglobal.com.tw">tyn@topglobal.com.tw </a>
+                    <!-- tyn@topglobal.com.tw -->
+                </p>
+                <p>官方LINE：@893ZLOWM</p>
             </p>
             <a href="https://lin.ee/lgoVP3a" style="cursor: pointer">
                 <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="48" border="0" target="_blank">
