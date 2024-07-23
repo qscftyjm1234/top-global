@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-07-22 12:25:31
+ * @LastEditTime: 2024-07-23 00:10:39
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -36,7 +36,35 @@ const isMobileLayout = ref(false);
                     >
                         <el-tab-pane label="快遞" name="6">
                             <section>
-                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" /> 
+                                <storge style="font-weight: 900; font-size: 24px ;font-family: italic;">
+                                    邏捷運通的收費公斤為
+                                    <mark>
+                                        材積重量
+                                    </mark>
+                                    或
+                                    <mark>
+                                        實際重量
+                                    </mark>
+                                </storge>
+                                <div style="font-weight: bold; font-size: 36px; margin-top: 8px;" class="content-title">
+                                    "取最大者作為計算"
+                                </div>
+                                <table border>
+                                    <tr>
+                                        <td></td>
+                                        <td>計算方式</td>
+                                        <td rowspan="3">取最大者為計算</td>
+                                    </tr>
+                                    <tr>
+                                        <td>實際重量(KG)</td>
+                                        <td>過秤重量=實際重量</td>
+                                    </tr>
+                                    <tr>
+                                        <td>材積重量(KG)</td>
+                                        <td>長x寬x高／6000</td>
+                                    </tr>
+                                </table>
+                                <!-- <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" />  -->
                                 <div class="content-title">一、體積(材積)計算方式</div>
                                 <p>
                                     以<mark>公分(cm)</mark>為測量單位<br />
@@ -101,10 +129,10 @@ const isMobileLayout = ref(false);
                                     價格：<mark>50／箱</mark><br />
                                     <ul>
                                         <li>提供基本氣泡膜及緩衝用包材、封箱帶等填滿內部空間，可防止箱內物品晃動或碰撞。</li>
-                                        <li>會略微增加包裹體積重量。。</li>
-                                        <li>若包裹體積過大則需另外報價。。</li>
+                                        <li>會略微增加包裹體積重量。</li>
+                                        <li>若包裹體積過大則需另外報價。</li>
                                         <li>加值服務不提供確認及清點內容物服務，若需要確認包裹內容物，歡迎使用"拍照所有商品(NTD150/張)"服務。</li>
-                                        <li>請注意加強包裝服務僅能降低破損概率，並不能完全避免破損。 易碎品、家具類、美妝品、液體、商產品包裝盒及部分等極度易損壞物品，即便填寫代運單時有勾選加強包裝等服務，運送過程若不幸損壞，海克力斯不予賠償。</li>
+                                        <li>請注意加強包裝服務僅能降低破損概率，並不能完全避免破損。 易碎品、家具類、美妝品、液體、商產品包裝盒及部分等極度易損壞物品，即便填寫代運單時有勾選加強包裝等服務，運送過程若不幸損壞，邏捷運通不予賠償。</li>
                                     </ul>
                                 </p>
                                 <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-02.png" /> 

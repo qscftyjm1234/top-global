@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 16:59:12
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-07-22 15:43:50
+ * @LastEditTime: 2024-07-23 12:02:37
  * @FilePath: \top-glob\pages\news.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -126,10 +126,10 @@
         getOrder(inputVal.value);
     };
     const getOrder = async(number: string) => {
-// /api/v1/user/member/waybill/searchDetailV2
+
         try {
             // 使用代理來發送 API 請求
-            const response = await axios.post('http://jingya.api.8bami.com/v1/user/member/waybill/searchDetailV2', {
+            const response = await axios.post('/api/v1/user/member/waybill/searchDetailV2', {
                 number: number
             },
             {
