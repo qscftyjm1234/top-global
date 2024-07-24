@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-07-23 00:10:39
+ * @LastEditTime: 2024-07-24 18:32:53
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -36,35 +36,25 @@ const isMobileLayout = ref(false);
                     >
                         <el-tab-pane label="快遞" name="6">
                             <section>
-                                <storge style="font-weight: 900; font-size: 24px ;font-family: italic;">
+                                
+                                <div style="font-weight: 900; font-size: 36px ;font-family: italic;">
                                     邏捷運通的收費公斤為
-                                    <mark>
-                                        材積重量
-                                    </mark>
+                                    <br />
+                                    <span style="color: #E4007F">
+                                        「材積重量」
+                                    </span>
                                     或
-                                    <mark>
-                                        實際重量
-                                    </mark>
-                                </storge>
-                                <div style="font-weight: bold; font-size: 36px; margin-top: 8px;" class="content-title">
-                                    "取最大者作為計算"
+                                    <span style="color: #E4007F">
+                                        「實際重量」
+                                    </span>
+                                    <span style="color: #E4007F; font-size: 40x">其最大者為計算
+                                    </span>
                                 </div>
-                                <table border>
-                                    <tr>
-                                        <td></td>
-                                        <td>計算方式</td>
-                                        <td rowspan="3">取最大者為計算</td>
-                                    </tr>
-                                    <tr>
-                                        <td>實際重量(KG)</td>
-                                        <td>過秤重量=實際重量</td>
-                                    </tr>
-                                    <tr>
-                                        <td>材積重量(KG)</td>
-                                        <td>長x寬x高／6000</td>
-                                    </tr>
-                                </table>
-                                <!-- <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" />  -->
+                                <div style="display: flex; flex-direction: column; align-items: center; max-width: 700px; margin: 16px 0px">
+                                    <img style="width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" />
+                                    <span style="color: red">※秤具皆有誤差，以邏捷運通測量數值為準</span> 
+                                </div>
+                                
                                 <div class="content-title">一、體積(材積)計算方式</div>
                                 <p>
                                     以<mark>公分(cm)</mark>為測量單位<br />
@@ -84,8 +74,23 @@ const isMobileLayout = ref(false);
                         </el-tab-pane>
                         <el-tab-pane label="海運" name="7">
                             <section>
-                                <!-- 這個圖片有誤要改這個圖片有誤要改這個圖片有誤要改這個圖片有誤要改 -->
-                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-04.jpg" /> 
+                                <div style="font-weight: 900; font-size: 36px ;font-family: italic;">
+                                    邏捷運通的收費公斤為
+                                    <br />
+                                    <span style="color: #E4007F">
+                                        「材積重量」
+                                    </span>
+                                    或
+                                    <span style="color: #E4007F">
+                                        「實際重量」
+                                    </span>
+                                    <span style="color: #E4007F; font-size: 40x">其最大者為計算
+                                    </span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; max-width: 700px; margin: 16px 0px">
+                                    <img style="width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-05.png" />
+                                    <span style="color: red">※秤具皆有誤差，以邏捷運通測量數值為準</span> 
+                                </div>
                                 <div class="content-title">一、體積(材積)計算方式</div>
                                 <p>
                                     以<mark>公分(cm)</mark>為測量單位<br />
@@ -103,13 +108,29 @@ const isMobileLayout = ref(false);
                         </el-tab-pane>
                         <el-tab-pane label="EMS 快遞" name="8">
                             <section>
-                                <!-- 這個圖片有誤要改這個圖片有誤要改這個圖片有誤要改這個圖片有誤要改 -->
-                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" /> 
+                                <div style="font-weight: 900; font-size: 36px ;font-family: italic;">
+                                    邏捷運通的收費公斤為
+                                    <br />
+                                    <span style="color: #E4007F">
+                                        「材積重量」
+                                    </span>
+                                    或
+                                    <span style="color: #E4007F">
+                                        「實際重量」
+                                    </span>
+                                    <span style="color: #E4007F; font-size: 40x">其最大者為計算
+                                    </span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; max-width: 700px; margin: 16px 0px">
+                                    <img style="width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-01.png" />
+                                    <span style="color: red">※秤具皆有誤差，以邏捷運通測量數值為準</span> 
+                                </div>
                                 <div class="content-title">一、體積(材積)計算方式</div>
                                 <p>
                                     以<mark>公分(cm)</mark>為測量單位<br />
                                     到貨後實際量測包裹外箱的【 長ｘ寬ｘ高 (cm)／6000 = 材積重量 】<br />
-                                    實際量測若遇小數點採無條件進位(未滿1公斤以1公斤計算)。
+                                    實際量測若遇小數點採無條件進位(未滿1公斤以1公斤計算)。<br />
+                                    ※長+(寬+高)*2不能超過300公分。單件限重30KG。
                                 </p>
                                 <hr />
                                 <div class="content-title">二、重量計算方式</div>
@@ -135,13 +156,13 @@ const isMobileLayout = ref(false);
                                         <li>請注意加強包裝服務僅能降低破損概率，並不能完全避免破損。 易碎品、家具類、美妝品、液體、商產品包裝盒及部分等極度易損壞物品，即便填寫代運單時有勾選加強包裝等服務，運送過程若不幸損壞，邏捷運通不予賠償。</li>
                                     </ul>
                                 </p>
-                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-02.png" /> 
+                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-03.png" /> 
                                 <hr />
                                 <div class="content-title">二、外箱打膠膜/氣泡袋 (以箱為單位)</div>
                                 <p>
                                     價格：<mark>100／箱</mark><br />
                                 </p>
-                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-03.png" /> 
+                                <img style="max-width: 540px; width: 100%; margin-bottom: 20px" src="@/assets/images/server/server-img-02.png" /> 
                             </section>
                         </el-tab-pane>
                         
