@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 14:30:49
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-07-22 12:30:35
+ * @LastEditTime: 2024-07-24 19:00:53
  * @FilePath: \top-glob\pages\Product.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -71,7 +71,7 @@ const tagers = [
                         </div>
                     </div>
                     <p style="line-height: 2rem; margin-top: 24px">
-                        邏捷通運(TGE)是一間台灣在地公司，成立於西元2023年，從事越南、印尼與日本的物流運輸企業，提供客戶最專業可靠的服務。我們的員工在業界資歷都已超過10年，擁有專業背景才能在物流界快速崛起。除了秉持傳統物流的堅毅精神，更加融入新世代的巧思與創意，是間創新的物流公司。我們擁有多種語言服務、專業客服、門到門一條龍服務，以及新穎物流系統等等優勢，為每一個客戶量身打造。在TGE，您就是我們的VIP。
+                        邏捷運通 (TGE) 是一間台灣在地公司，成立於西元2023年，從事越南、印尼與日本的物流運輸企業，提供客戶最專業可靠的服務。我們的員工在業界資歷都已超過10年，擁有專業背景才能在物流界快速崛起。除了秉持傳統物流的堅毅精神，更加融入新世代的巧思與創意，是間創新的物流公司。我們擁有多種語言服務、專業客服、門到門一條龍服務，以及新穎物流系統等等優勢，為每一個客戶量身打造。在TGE，您就是我們的VIP。
                     </p>
                 </el-col>
                 <el-col :span="13" :xs="24">
