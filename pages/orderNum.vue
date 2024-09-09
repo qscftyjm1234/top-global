@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 16:59:12
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-08-14 23:10:28
+ * @LastEditTime: 2024-09-05 18:01:25
  * @FilePath: \top-glob\pages\news.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -35,86 +35,87 @@
         },
     ];
 
-    const statusList = ref([
-        {
-            title: "已下单",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已配载",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已报关检验",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已报关放行",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已开船",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已到港",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已靠港",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已清关检验",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已清关放行",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "预计到达国外仓库",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已到仓",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "配送中",
-            content: "",
-            createTime: "",
-            isActive: false,
-        },
-        {
-            title: "已签收",
-            content: "",
-            createTime: "",
-            isActive: false,
-        }
-    ]);
+    // const statusList = ref([
+    //     {
+    //         title: "已下单",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已配载",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已报关检验",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已报关放行",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已开船",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已到港",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已靠港",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已清关检验",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已清关放行",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "预计到达国外仓库",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已到仓",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "配送中",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     },
+    //     {
+    //         title: "已签收",
+    //         content: "",
+    //         createTime: "",
+    //         isActive: false,
+    //     }
+    // ]);
+    const statusList = ref([])
     const inputVal = ref('')
     const search = async() => {
         if (!inputVal.value) {
@@ -166,14 +167,22 @@
                 res = [...response.result.tracks];
             };
             // 比對
-            statusList.value.forEach(item => {
-                item.isActive = false;
-                let resObj = res.find(findItem => findItem.title == item.title);
-                if (resObj) {
-                    for (let obj in item) {
-                        item[obj] = resObj[obj];
-                        item.isActive = true;
-                    };
+            // statusList.value.forEach(item => {
+            //     item.isActive = false;
+            //     let resObj = res.find(findItem => findItem.title == item.title);
+            //     if (resObj) {
+            //         for (let obj in item) {
+            //             item[obj] = resObj[obj];
+            //             item.isActive = true;
+            //         };
+            //     };
+            // });
+            statusList.value = res.map(mapItem => {
+                return {
+                    title: mapItem.title,
+                    content: mapItem.content,
+                    createTime: mapItem.createTime,
+                    isActive: true,
                 };
             });
         });
@@ -222,7 +231,7 @@
                         class="demo-tabs"
                         @tab-click="handleClick"
                     >
-                        <el-tab-pane label="集運單號查詢" name="1">
+                        <el-tab-pane label="貨運單號查詢" name="1">
                             <section>
                                 <div style="margin-bottom: 32px;">
                                     <el-input v-model="inputVal" style="width: 240px; margin-right: 8px;" placeholder="請輸入集運單號" />
@@ -255,7 +264,7 @@
                                 </el-table>
                             </section>
                         </el-tab-pane>
-                        <el-tab-pane label="貨運單號查詢" name="2">
+                        <el-tab-pane label="集運單號查詢" name="2">
                             <section>
                                 此功能尚未開放，敬請期待
                             </section>

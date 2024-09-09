@@ -2,22 +2,30 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-04-02 13:07:08
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-08-14 23:08:21
+ * @LastEditTime: 2024-09-09 15:22:16
  * @FilePath: \top-glob\nuxt.config.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 const path = require('path');
 
 export default defineNuxtConfig({
-  head: {
-    meta: [
-      { 'http-equiv': 'Content-Security-Policy', content: 'upgrade-insecure-requests' },
-    ],
-  },
+  ssr: true,
   app: {
     baseURL: '/', // 配置應用程序的基本 API 請求 URL
     base: '/',
     buildAssetsDir: '/static/',
+    head: {
+      title: "TGE 邏捷運通有限公司",
+      meta: [
+        // { 'http-equiv': 'Content-Security-Policy', content: 'upgrade-insecure-requests' },
+        { name: 'description', content: 'TGE 邏捷運通有限公司' },
+        { name: 'keywords', content: '邏捷運通, 貨運, TGE, 公司, 運輸, TGE(邏捷）'},
+        { name: 'author', content: '邏捷運通' },
+      ],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "logo.jpg" }
+      ]
+    },
   },
   router: {
     base: '/',
